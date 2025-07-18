@@ -7,13 +7,15 @@ RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
     sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
     apt-get clean && \
     apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libpng-dev && \
-    docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install -j$(nproc) gd pdo pdo_mysql && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+           libfreetype6-dev \
+           libjpeg62-turbo-dev \
+           libpng-dev \
+           libzip-dev \
+           zip unzip && \
+       docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+       docker-php-ext-install -j$(nproc) gd pdo pdo_mysql zip && \
+       apt-get clean && rm -rf /var/lib/apt/lists/*
 # 复制项目代码到容器
 COPY . /var/www/html
 

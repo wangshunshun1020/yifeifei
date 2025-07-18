@@ -1,23 +1,24 @@
-# 使用 PHP 7.2 + Apache 官方镜像
 FROM php:7.2-apache
 
-# 开启 Apache 的 rewrite 模块
+# 安装依赖
+RUN apt-get update && apt-get install -y \
+    libzip-dev zip unzip \
+    && docker-php-ext-install pdo pdo_mysql zip
+
+# 开启 rewrite 模块
 RUN a2enmod rewrite
 
-# 设置工作目录（可根据你实际代码目录调整）
-WORKDIR /var/www/html
+# 复制项目代码
+COPY . /var/www/html
 
-# 拷贝代码到容器中（假设当前目录为项目根目录）
-COPY . /var/www/html/
+# 设置权限（可选）
+RUN chown -R www-data:www-data /var/www/html
 
-# 设置 Apache 虚拟主机配置，启用伪静态
-RUN echo '<Directory /var/www/html/>' > /etc/apache2/sites-available/000-default.conf && \
-    echo '    AllowOverride All' >> /etc/apache2/sites-available/000-default.conf && \
-    echo '    Require all granted' >> /etc/apache2/sites-available/000-default.conf && \
-    echo '</Directory>' >> /etc/apache2/sites-available/000-default.conf
+# 设置工作目录为 public
+WORKDIR /var/www/html/public
 
-# 设置默认端口
-EXPOSE 80
+# 设置 Apache 的运行目录为 public
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
-# 启动 Apache
-CMD ["apache2-foreground"]
+# 启用 .htaccess 支持
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf

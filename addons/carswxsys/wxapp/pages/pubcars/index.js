@@ -81,7 +81,7 @@ Page({
     sbrandid:0,
     carnumdate:'',
 
-    carkmtitle:'请输入公里数',
+    carkmtitle:'请输入飞行小时数',
     brandinfo:[],
 
 
@@ -533,7 +533,7 @@ Page({
     if (carkm == "") {
       wx.showModal({
         title: '提示',
-        content: '请输入公里数',
+        content: '请输入飞行小时数',
         showCancel: false
       })
       return

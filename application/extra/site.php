@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => '二手摩托',
+  'name' => '逸飞飞二手飞机',
   'beian' => '',
   'cdnurl' => '',
   'version' => '1.0.4',

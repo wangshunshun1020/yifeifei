@@ -11,7 +11,7 @@
         'sbrandname' => '车系',
         'title' => '标题',
         'money'=>'售价(万元)',
-        'carkm' => '公里数',
+        'carkm' => '飞行小时数',
         'carnumdate'=>'上牌日期',
         'cartype'=>'车身结构',
         'carrate'=>'排放',

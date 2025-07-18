@@ -30,7 +30,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'provincename', title: __('provinceid'), operate:false,},
                         {field: 'cityname', title: __('cityid'), operate:false,},
                         {field: 'areaname', title: __('areaid'), operate:false,},
-                        {field: 'car_number_city', title: __('车牌归属'), operate:false,},
+                        {field: 'car_number_city', title: __('注册号'), operate:false,},
                         {field: 'brandname', title: __('brandname')},
                         {field: 'scrap_time', title: __('报废日期')},
                         {field: 'transfer_num', title: __('过户次数')},

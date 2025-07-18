@@ -626,7 +626,7 @@ Page({
     if (carkm == "") {
       wx.showModal({
         title: '提示',
-        content: '请输入公里数',
+        content: '请输入飞行小时数',
         showCancel: false
       })
       return

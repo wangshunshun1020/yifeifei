@@ -70,8 +70,8 @@
             </view>
 
             <view class="item">
-              <view class="name">公里数</view>
-              <view class="selectitem"><view><input  type="text"  value = "{{carsinfo.carkm}}" name="carkm" placeholder="请输入公里数" style="width:550rpx;" /></view><view>万公里</view></view>
+              <view class="name">飞行小时数</view>
+              <view class="selectitem"><view><input  type="text"  value = "{{carsinfo.carkm}}" name="carkm" placeholder="请输入飞行小时数" style="width:550rpx;" /></view><view>万公里</view></view>
 
             </view>
 

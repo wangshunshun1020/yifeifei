@@ -15,6 +15,7 @@ WORKDIR /public
 # 开启 Apache mod_rewrite
 RUN a2enmod rewrite
 
+
 # 设置 URL 重写规则（可选）
 COPY ./public/.htaccess /var/www/html/public/.htaccess
 

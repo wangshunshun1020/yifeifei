@@ -16,13 +16,13 @@ return [
     // 数据库类型
     'type'            => Env::get('database.type', 'mysql'),
     // 服务器地址
-    'hostname'        => Env::get('database.hostname', '127.0.0.1'),
+    'hostname'        => Env::get('database.hostname', '10.7.110.168'),
     // 数据库名
-    'database'        => Env::get('database.database', '192_168_17_183'),
+    'database'        => Env::get('database.database', 'thinkphp_demo'),
     // 用户名
-    'username'        => Env::get('database.username', '192_168_17_183'),
+    'username'        => Env::get('database.username', 'root'),
     // 密码
-    'password'        => Env::get('database.password', '5KhhNCs6y7xa85tQ'),
+    'password'        => Env::get('database.password', 'Mima123456'),
     // 端口
     'hostport'        => Env::get('database.hostport', '3306'),
     // 连接dsn

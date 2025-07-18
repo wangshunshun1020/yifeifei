@@ -1,0 +1,112 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+
+    <input type="hidden" value="{$row.id}" name="row[id]"/>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sort" data-rule="required" class="form-control" name="row[sort]" value="{$row.sort|htmlentities}"  type="number">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('advname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-advname" data-rule="required" class="form-control" name="row[advname]" value="{$row.advname|htmlentities}"  type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-image" class="control-label col-xs-12 col-sm-2"  >{:__('thumb')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-image" data-rule="" class="form-control" size="50" name="row[thumb]" type="text" value="{$row.thumb|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp,image/webp" data-multiple="false" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-image"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('link')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select class="city form-control" name="row[link]" >
+
+                <option value="" >请选择导航类型</option>
+                <option value="toLiveOn" {eq name="$row.link" value="toLiveOn"}selected{/eq} >直播模型</option>
+                <option value="toFindjob" {eq name="$row.link" value="toFindjob"}selected{/eq} >工作列表模型</option>
+                <option value="toFindworker" {eq name="$row.link" value="toFindworker"}selected{/eq} >人才列表模型</option>
+                <option value="toActive" {eq name="$row.link" value="toActive"}selected{/eq}  >招聘会列表模型</option>
+                <option value="toCompanylist"  {eq name="$row.link" value="toCompanylist"}selected{/eq} >企业列表模型</option>
+                <option value="toArticle" {eq name="$row.link" value="toArticle"}selected{/eq}  >资讯模型</option>
+                <option value="toMyNote" {eq name="$row.link" value="toMyNote"}selected{/eq}  >发布简历模型</option>
+                <option value="toMySave" {eq name="$row.link" value="toMySave"}selected{/eq}  >收藏模型</option>
+                <option value="toNotice" {eq name="$row.link" value="toNotice"}selected{/eq}  >面试通知模型</option>
+                <option value="toLogin" {eq name="$row.link" value="toLogin"}selected{/eq}  >企业登录模型</option>
+                <option value="toFindpartjob" {eq name="$row.link" value="toFindpartjob"}selected{/eq}  >兼职模型</option>
+                <option value="toNearjob" {eq name="$row.link" value="toNearjob"}selected{/eq}  >附近职位模型</option>
+                <option value="toRegsub" {eq name="$row.link" value="toRegsub"}selected{/eq}  >申请补贴模型</option>
+                <option value="toUser" {eq name="$row.link" value="toUser"}selected{/eq}  >会员中心模型</option>
+                <option value="toRegmoney" {eq name="$row.link" value="toRegmoney"}selected{/eq}  >我要推荐模型</option>
+                <option value="toAgentlist" {eq name="$row.link" value="toAgentlist"}selected{/eq}  >经纪人列表模型</option>
+                <option value="toNotevideo" {eq name="$row.link" value="toNotevideo"}selected{/eq}  >颜值招聘模型</option>
+                <option value="toMoneyjob" {eq name="$row.link" value="toMoneyjob"}selected{/eq}  >悬赏职位模型</option>
+                <option value="toNicejob" {eq name="$row.link" value="toNicejob"}selected{/eq}  >高端职位模型</option>
+                <option value="toInnerUrl" {eq name="$row.link" value="toInnerUrl"}selected{/eq}  >内连接模型</option>
+                <option value="toMenuUrl" {eq name="$row.link" value="toMenuUrl"}selected{/eq}  >菜单连接模型</option>
+                <option value="toWxapp" {eq name="$row.link" value="toWxapp"}selected{/eq}  >跳转小程序模型</option>
+                <option value="toWebview" {eq name="$row.link" value="toWebview"}selected{/eq}  >跳转网页模型</option>
+
+
+            </select>
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('innerurl')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-innerurl" placeholder="可以留空,只当选择内链接、菜单链接、跳转网页、小程序模型时需填写" class="form-control" name="row[innerurl]" value="{$row.innerurl|htmlentities}" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('appid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-appid" placeholder="可以留空,只当选择跳转小程序模型时需填写" class="form-control" name="row[appid]" type="text" value="{$row.appid|htmlentities}">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                <label for="row[enabled]-normal"><input  name="row[enabled]" type="radio" value="1" {$row.enabled == 1 ? 'checked' :''}> 启用</label>
+                <label for="row[enabled]-hidden"><input  name="row[enabled]" type="radio" value="0" {$row.enabled == 0 ? 'checked' :''}> 禁用</label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

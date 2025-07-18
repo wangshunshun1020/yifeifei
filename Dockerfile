@@ -2,10 +2,11 @@ FROM php:7.2-apache
 
 # 安装GD扩展及依赖
 # 更换 apt 源为阿里云 & 升级为 bullseye
-# 替换为国内源，提高成功率
-RUN sed -i 's/deb.debian.org/mirrors.tencent.com/g' /etc/apt/sources.list && \
+# 替换为阿里云 Debian 源，兼容性更强
+RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
+    sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
     apt-get clean && \
-    apt-get update || (cat /etc/apt/sources.list && apt-get update) && \
+    apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libjpeg62-turbo-dev \

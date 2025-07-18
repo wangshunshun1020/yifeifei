@@ -10,11 +10,13 @@ COPY . /var/www/html
 RUN sed -i 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available/000-default.conf
 
 # 设置工作目录
-WORKDIR /public
+WORKDIR /var/www/html/public
 
 # 开启 Apache mod_rewrite
 RUN a2enmod rewrite
 
+# 设置权限（避免权限问题）
+RUN chown -R www-data:www-data /var/www/html
 
 # 设置 URL 重写规则（可选）
 COPY ./public/.htaccess /var/www/html/public/.htaccess

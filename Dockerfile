@@ -1,8 +1,9 @@
 FROM php:7.2-apache
 
-# 安装扩展
-RUN docker-php-ext-install pdo pdo_mysql
-
+# 安装GD扩展及依赖
+RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
 # 复制项目代码到容器
 COPY . /var/www/html
 

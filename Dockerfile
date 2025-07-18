@@ -5,13 +5,14 @@ FROM php:7.2-apache
 # 替换为国内源，提高成功率
 RUN sed -i 's/deb.debian.org/mirrors.tencent.com/g' /etc/apt/sources.list && \
     apt-get clean && \
-    apt-get update && \
-    apt-get install -y \
+    apt-get update || (cat /etc/apt/sources.list && apt-get update) && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install gd pdo pdo_mysql
+    docker-php-ext-install -j$(nproc) gd pdo pdo_mysql && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 # 复制项目代码到容器
 COPY . /var/www/html
 

@@ -1,9 +1,13 @@
 FROM php:7.2-apache
 
 # 安装GD扩展及依赖
-RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql
+# 更换 apt 源为腾讯云，加速安装
+RUN sed -i 's|http://deb.debian.org/debian|https://mirrors.tencent.com/debian|g' /etc/apt/sources.list \
+ && sed -i 's|http://security.debian.org/debian-security|https://mirrors.tencent.com/debian-security|g' /etc/apt/sources.list \
+ && apt-get update \
+ && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev \
+ && docker-php-ext-configure gd --with-freetype --with-jpeg \
+ && docker-php-ext-install gd pdo pdo_mysql
 # 复制项目代码到容器
 COPY . /var/www/html
 

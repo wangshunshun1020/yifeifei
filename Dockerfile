@@ -3,19 +3,20 @@ FROM php:7.2-apache
 # 安装GD扩展及依赖
 # 更换 apt 源为阿里云 & 升级为 bullseye
 # 替换为阿里云 Debian 源，兼容性更强
-RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
-    sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
-    apt-get clean && \
+# 使用 archive.debian.org 代替官方源，避免 404 和 Release 过期问题
+RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list && \
+    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until && \
     apt-get update && \
-      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-           libfreetype6-dev \
-           libjpeg62-turbo-dev \
-           libpng-dev \
-           libzip-dev \
-           zip unzip && \
-       docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
-       docker-php-ext-install -j$(nproc) gd pdo pdo_mysql zip && \
-       apt-get clean && rm -rf /var/lib/apt/lists/*
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+        libzip-dev \
+        zip unzip && \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+    docker-php-ext-install -j$(nproc) gd pdo pdo_mysql zip && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 # 复制项目代码到容器
 COPY . /var/www/html
 

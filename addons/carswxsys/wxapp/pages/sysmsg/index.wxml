@@ -1,0 +1,31 @@
+<view class="container">
+
+
+<!--
+<view class="navlist"> 
+  <view class="item" bindtap='toMyFind'><image src="../../resource/img/save.png"></image><view>投递进展</view></view>
+  <view class="item" bindtap='toMyNotice'><image src="../../resource/img/gz.png"></image><view>面试通知</view></view>
+  <view class="item" bindtap='toMylooknote'><image src="../../resource/img/ask.png"></image><view>对我感兴趣</view></view>
+
+
+</view>
+-->
+<view class="list">
+
+  <view class="list_item" wx:if="{{sysmsglist.length>0}}" wx:for="{{sysmsglist}}">
+      <view class="list_content">
+          <view>{{item.content}}<navigator url="{{item.link}}" hover-class="none"><view wx:if="{{item.link!=''}}" style="color: blue;" >【点击查看】</view></navigator></view>
+          <view>{{item.createtime}}</view>
+      </view>
+  </view>
+
+
+  <view class="nodata" wx:if="{{sysmsglist.length == 0}}">
+    <image   src="../../imgs/icon/nodata.png"></image>
+</view>
+
+
+
+</view>
+
+</view>

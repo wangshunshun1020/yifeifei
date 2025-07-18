@@ -1,0 +1,53 @@
+<import src="../index/templates/ejoblist.wxml" />
+ <view class="container">
+ <form bindsubmit="bindSave">
+<view class="search">
+	<icon type="search" size="14"></icon>
+	<input type="text" placeholder="请输入相关信息" placeholder-class="search_plac" confirm-type="search"  name="keyword" ></input>
+	<button formType="submit">搜索</button>
+</view>
+  </form>
+
+  <view class="news">
+
+   
+
+    
+
+
+		<view class="newslist" wx:for="{{carslist}}" >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.id}}">
+                              <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                <view class="housearea">{{item.provincename}}-{{item.cityname}} | {{item.carkm}}万公里</view>
+                                <view class="perprice">
+                                    <view>
+                                 {{item.money}} <text style="font-size:.7rem;">万</text>
+                                </view>
+                                 <button class="cu-btn round line-red shadow" style="margin-right:10rpx;">询底价</button>
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+
+
+
+
+
+</view>
+
+<view class="loadmore" hidden='{{loadmore}}'>
+	<text>未查找相关信息</text>
+</view>
+    </view>
+<!--news end-->

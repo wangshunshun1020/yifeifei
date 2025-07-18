@@ -1,0 +1,38 @@
+
+   
+   
+   <view class="container">
+
+  
+
+    <view class="newslist"  wx:if="{{list.length > 0}}" wx:for="{{list}}" >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.carid}}">
+                              <image src="{{item.thumb!='' ? item.thumb : '../../imgs/icon/noimg.png'}}"></image>
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.carid}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                <view class="housearea">{{item.carnumdate}} | {{item.carkm}}公里 | {{item.carrate}}</view>
+                                <view class="perprice">
+                                    <view>
+                                 {{item.money}} <text style="font-size:.7rem;">万元</text>
+                                </view>
+                                 <button class="cu-btn round line-red shadow" style="margin-right:10rpx;">询底价</button>
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+
+ <view class="nodata" wx:if="{{list.length == 0}}">
+    <image   src="../../imgs/icon/nodata.png"></image>
+</view>
+
+</view>
+

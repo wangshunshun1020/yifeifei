@@ -1,0 +1,132 @@
+<view class="container">
+
+
+
+
+
+
+
+  <view class="list">
+
+
+<!--
+
+    <view class="newslist" >
+                            <view class="pic" bindtap="toHouseDetail" data-id="{{item.id}}">
+                                  <image src="https://dz.site100.cn/uploads/images/20221201/62700bb44467b723633443a2a822dddb.jpg"></image>
+ 
+                         
+                            </view>
+                            <view class="title" bindtap="toHouseDetail" data-id="{{item.id}}">
+                                      <view class="address">
+                                            <view>{{item.title}}</view>
+                                            <view>{{item.areaname}} | {{item.area}}㎡ | {{item.floor== 0 ? '一楼' : '非一楼'}}| {{item.type== 0 ? '临街' : '不临街'}}</view>
+                                      </view>
+                                    <view class="price">
+                                         
+                                            <view class="money">转让费:￥{{item.changemoney}}万</view>
+                                    </view>
+
+
+                            </view>
+                            
+
+
+
+
+                      </view>
+
+                      -->
+  <view class="item" bindtap="toMyorder">
+  <view>置顶套餐</view>
+  <view  bindtap="showModal" data-target="ChooseModal">{{title? title:'选择置顶套餐'}}</view>
+</view>  
+
+
+
+<view class="item" bindtap="toMyorder">
+  <view>订单类型</view>
+<view>置顶信息</view>
+</view>  
+
+<view class="item" bindtap="toMyorder">
+  <view>订单数量</view>
+<view>1份</view>
+</view>   
+
+
+
+<view class="item" bindtap="toMyorder">
+<view>订单备注</view>
+<view><input  type="text" style="width:150rpx;"  value = "{{order.content}}" name="tel" placeholder="请填写备注"  cursor-spacing ="140" /></view>
+</view>   
+
+
+
+
+
+
+
+
+</view>
+
+
+<view class="list">
+
+<view class="item" bindtap="toMyorder">
+  <view>优惠劵</view>
+<view wx:if="{{couponlist.length>0}}" bindtap="showModal" data-target="ChooseModal">{{title=='' ? '选择优惠劵':title }}</view>
+<view wx:if="{{couponlist.length == 0}}" bindtap="showModal" data-target="ChooseModal">暂无优惠劵</view>
+
+</view>   
+
+
+</view>
+
+<view class="list">
+
+<view class="item" bindtap="toMyorder">
+  <view>支付方式</view>
+<view>微信支付</view>
+</view>   
+
+
+</view>
+
+</view>
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+
+    <view class="totalmoney">
+      <view>合计:<text>￥{{totalmoney}}</text></view>
+      <view></view>
+    </view>
+  
+     <view> <button class="cu-btn bg-red margin-tb-sm lg" bindtap="toPay">立即支付</button></view>
+
+    </view>
+</view>
+
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+      <view class="action text-green" bindtap="hideModal">确定</view>
+    </view>
+    <view class="grid col-3 padding-sm">
+      <view  class="padding-xs" wx:for="{{lookrolelist}}">
+        <button class="cu-btn orange lg block {{roleid == item.id ?'bg-orange':'line-orange'}}" bindtap="selectRole" data-id="{{item.id}}" data-money="{{item.money}}" data-title="{{item.title}}"> {{item.title}}
+       
+        </button>
+      </view>
+
+
+
+    
+  
+    </view>
+  </view>
+</view>

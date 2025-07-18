@@ -1,0 +1,57 @@
+
+ <view class="type-container">
+      <scroll-view class="type-navbar" scroll-x="true">
+          <view class="type-box" wx:for-items="{{catelist}}"  >
+              <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                  {{item.name}}
+              </view>
+          </view>
+          
+
+      </scroll-view>
+  </view>
+
+
+<view class="container">
+      <view class="news" >
+                <view class="newslist" wx:for-items="{{newslist}}">
+                      <view class="pic" bindtap="toNewsDetail" data-id="{{item.id}}">
+                        <image src="{{item.thumb}}"></image>
+                      </view>
+                      <view class="title" bindtap="toNewsDetail" data-id="{{item.id}}">
+                        <view>{{item.title}}</view>
+                        <view>{{item.createtime}}</view>
+                      </view>
+                </view>
+         
+                
+      </view>
+<!--news end-->
+</view>
+
+
+
+<view class="cu-bar tabbar foot bg-white">
+    <view class="action text-gray" bindtap="toIndex">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+    <view class="action text-gray" bindtap="toCarslist">
+      <view class="cuIcon-similar"></view> 最新车辆
+    </view>
+    <view class="action text-gray add-action"  bindtap="toPubCars">
+      <button class="cu-btn cuIcon-add bg-red shadow"></button>
+      发布
+    </view>
+
+    
+    <view class="action text-red" bindtap="toArticle">
+      <view class="cuIcon-notice">
+      </view>
+      行业资讯
+    </view>
+    <view class="action text-gray" bindtap="toMyuser">
+      <view class="cuIcon-my">
+      </view>
+      我的
+    </view>
+  </view>

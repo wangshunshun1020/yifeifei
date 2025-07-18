@@ -1,0 +1,98 @@
+
+
+<view class="container_2" >
+  <view class="header_2" >
+
+      <view class="search_2" bindtap='toSelectCars'>
+                <icon type="search" size="14"/><view>想买什么车</view>
+            </view>
+
+
+            <navigator url="../city/index?id=0" hover-class="none">
+
+            <view class="city_2" bindtap="toLogin">
+            
+               <view> <image src="../../imgs/icon/cars.png" style="width:45rpx;height:45rpx;margin-top:18rpx;margin-right: 10rpx;" ></image></view>
+               <vew>卖车</vew>
+            </view>
+
+            </navigator>
+    
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="selectcars">
+ 
+
+
+
+        <view class="selectres" > 
+                
+                <view class="itemres" wx:if="{{brandid>0}}" >筛选:{{brandinfo.name}} </view>
+    
+             <view class="itemres" wx:if="{{priceid>0}}" >筛选:{{priceinfo.name}} </view>
+    
+             <view class="itemres" wx:if="{{special!=''}}" >筛选:{{special}} </view>
+
+            </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="newslist" wx:for="{{carslist}}" >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.id}}">
+                              <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                <view class="housearea">{{item.carnumdate}} | {{item.carkm}}万公里 | {{item.carrate}}</view>
+                                <view class="perprice">
+                                <view>
+                                 {{item.money}} <text style="font-size:.7rem;">万</text>
+                                </view>
+                                 <button class="cu-btn round line-red shadow" style="margin-right:10rpx;">询底价</button>
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+
+ 
+
+
+
+</view>
+

@@ -1,0 +1,179 @@
+.container {
+  background-color: #FFF;
+  min-height: 100%
+}
+.search {
+	display: flex;
+	width: 100%;
+	/* line-height: 50px; */
+	padding: 10px 4%;
+	background-color: #f5f5f5;
+}
+
+.search input {
+	width: 70%;
+	height: 30px;
+	background-color: #FFF;
+	padding-left: 10%;
+}
+
+.search_plac {
+	font-size: 14px;
+}
+
+.search icon {
+	position: absolute;
+	left: 7%;
+	top: 17px;
+	z-index: 99;
+}
+
+.search button {
+	flex: 1;
+	width: 30px;
+    line-height: 30px;
+    border: 0;
+    color: #fff;
+    background-color: #e62129;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 10px;
+    font-size: 14px;
+    border-radius: 2px;
+}
+
+.hot_search {
+	width: 96%;
+	padding: 0 2%;
+}
+
+.hot_search_tit {
+	line-height: 30px;
+}
+ 
+.hot_search_tit text {
+	padding: 0 2%;
+	font-size: 14px;
+}
+
+.hot_tag {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.hot_tag text {
+	width: 20%;
+	line-height: 25px;
+	border: 1px solid #acacac;
+	border-radius: 2px;
+	font-size: 12px;
+	text-align: center;
+	margin: 4px 2%;
+}
+
+.newslist{
+	display: flex;
+	flex-direction: row;
+	width:750rpx;
+	margin: 0 auto;
+	border-bottom: 1px solid #efefef;
+	padding-top:20rpx;
+	padding-bottom:20rpx;
+	background:#FFF;
+
+
+	}
+	 .newslist .pic{
+	width:35%;
+	height: 220rpx;
+	line-height: 220rpx;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	padding-left:20rpx;
+	}
+	 .newslist .pic image{
+	 width:260rpx;
+	 height: 210rpx;
+	 border-radius: 10rpx;
+	}
+	
+	 .newslist .title{
+	width:65%;
+	flex-direction: column;
+	display: flex;
+	justify-content: space-between;
+	height: 200rpx;
+	}
+	 .newslist .title .address{
+		padding-left: 5%;
+		text-align: left;
+		font-size: 13px;
+		font-weight: 600;
+		color: #000; 
+	}
+	
+	 .newslist .title .housearea{
+		padding-left: 5%;
+		text-align: left;
+		font-size: .7rem;
+		padding-top:10rpx;
+		padding-bottom: 10rpx;
+		color: #999; 
+	}
+	
+	
+	.newslist .title .address text{
+			color:#1aac19;
+	
+	 }
+	
+	
+	
+	 .newslist .title .perprice{
+			padding-left: 5%;
+			font-size: 1rem;
+			color:#d65408;
+			font-weight:bold;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+	
+	}
+	
+	.perprice button{
+		margin-left:170rpx;
+	}
+	
+	
+	 .newslist .title .price{
+		padding-left: 5%;
+		text-align: left;
+		font-size: .6rem;
+	color: #6a6a6a; 
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 60rpx;
+	line-height: 60rpx;
+	align-self: baseline;
+	width:450rpx;
+	}
+	 .newslist .title .price view text{
+		
+	padding: 5rpx 7rpx;
+	border-radius: 3rpx;
+	margin-right: 5rpx;
+	height: 20rpx;
+	line-height:20rpx; 
+	color:#77af6e;
+		background: #f7f5f6;
+	
+	}
+	 .newslist .title .price .money{
+	color:#d65408;
+	font-weight:bold;
+	font-size: .8rem;
+	padding-right: 10rpx;
+	}
+	

@@ -1,0 +1,348 @@
+<form bindsubmit="savepubinfo" report-submit>
+
+<view class="container">
+
+    <view class="main">
+        <view class="title">
+            请填写二手车信息
+        </view> 
+        <view class="list">
+
+
+        
+          <view class="item">
+              <view class="name">品牌</view>
+              <view class="selectitem" style=" color:#808080;font-size:18px;margin-top:20rpx;" bindtap="toSelectBrand">
+
+          {{brandname != '' ? brandname  : '请选择品牌'}}    
+              
+              </view>
+
+            </view>
+
+
+            <view class="item">
+              <view class="name">选择区域</view>
+              <view class="selectitem">
+              
+              
+                <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{objectMultiArray}}" range-key="name">
+    <view class="picker">
+     {{rectname}}
+    </view>
+  </picker>
+          
+              
+              
+              
+              </view>
+
+            </view>
+
+
+
+           <view class="item">
+              <view class="name">详情车系</view>
+              <view class="selectitem"><input  value="{{carsinfo.title}}" type="text" name="title" placeholder="请输入详情车系" /></view>
+
+            </view>
+        
+            <view class="item">
+              <view class="name">手机号(如未获取到，再次点击即可)</view>
+              <view class="selectitem"><view><input  type="text"  value = "{{tel}}" name="tel" placeholder="请获取手机号" style="width:400rpx;" disabled /></view><view><button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='background:#fff;color:#eb4f38;font-size:.7rem;width:200rpx;margin-right:20rpx;'>获取手机号</button></view></view>
+
+            </view>
+
+
+
+  
+ 
+             <view class="item">
+              <view class="name">售价</view>
+              <view class="selectitem"><view><input  type="text"  value = "{{carsinfo.money}}" name="money" placeholder="请输入售价" style="width:600rpx;" /></view><view>万元</view></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">车龄</view>
+              <view class="selectitem"><view><input  type="text"  value = "{{carsinfo.carage}}" name="carage" placeholder="请输入车龄" style="width:600rpx;" /></view><view>年</view></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">公里数</view>
+              <view class="selectitem"><view><input  type="text"  value = "{{carsinfo.carkm}}" name="carkm" placeholder="请输入公里数" style="width:550rpx;" /></view><view>万公里</view></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">上牌时间</view>
+              <view class="selectitem">
+
+              
+
+                 <picker  mode="date" value="{{carnumdate}}" start="2000-1-01"  bindchange="bindDateChange">
+
+<view class="picker" style="width:700rpx;">{{carnumdate?carnumdate :'请选择初次上牌日期'}} </view>
+ </picker>
+              
+
+
+
+              
+              </view>
+
+            </view>
+
+
+            <view class="item">
+              <view class="name">车身结构</view>
+              <view class="selectitem">
+              
+            
+
+              <picker value="{{Index}}"  range="{{cartype}}"   bindchange="bindCartype">  
+              <view class="picker">  
+
+                  {{cartype[cartypeindex] ? cartype[cartypeindex] : '请选择车身结构' }}
+              </view>  
+            </picker>
+              
+              
+              </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">排放</view>
+              <view class="selectitem">
+              
+            
+
+              <picker value="{{Index}}"  range="{{carrate}}"   bindchange="bindCarrate">  
+              <view class="picker">  
+
+                  {{carrate[carrateindex] ? carrate[carrateindex] : '请选择变排放' }}
+              </view>  
+            </picker>
+              
+              
+              </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">变速箱</view>
+              <view class="selectitem">
+              
+                <picker value="{{Index}}"  range="{{carchange}}"   bindchange="bindCarChange">  
+              <view class="picker">  
+
+                  {{carchange[carchangeindex] ? carchange[carchangeindex] : '请选择变速箱' }}
+              </view>  
+            </picker>
+              
+              
+              </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">排量</view>
+              <view class="selectitem"><input  type="text"  value = "{{carsinfo.carspl}}" name="carpl" placeholder="请输入排量" /></view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">排量单位<text>*</text></view>
+              <view class="selectitem">
+
+                  <radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio">
+    <radio value="L" checked="{{carsinfo.per =='L' ? 'checked':''}}"/>L
+  </label>
+    <label class="radio">
+    <radio value="T" checked="{{carsinfo.per =='T' ? 'checked':''}}"/>T
+  </label>
+
+</radio-group>
+              
+              
+              </view>
+
+            </view>
+
+
+            <view class="item">
+              <view class="name">燃料类型</view>
+              <view class="selectitem">
+              
+                <picker value="{{Index}}"  range="{{carfuel}}"   bindchange="bindCarfuel">  
+              <view class="picker">  
+
+                  {{carfuel[carfuelindex] ? carfuel[carfuelindex] : '请选择燃料类型' }}
+              </view>  
+            </picker>
+              
+              
+              </view>
+
+            </view>
+            
+            <view class="item">
+              <view class="name">座位</view>
+              <view class="selectitem">
+              
+                <picker value="{{Index}}"  range="{{carpos}}"   bindchange="bindPosChange">  
+              <view class="picker">  
+
+                  {{carpos[carposindex] ? carpos[carposindex] : '请选择座位' }}
+              </view>  
+            </picker>
+              
+              </view>
+
+            </view>
+
+            <view class="item">
+              <view class="name">颜色</view>
+              <view class="selectitem">
+              
+                <picker value="{{Index}}"  range="{{carcolor}}"   bindchange="bindCarcolorChange">  
+              <view class="picker">  
+
+                  {{carcolor[carcolorindex] ? carcolor[carcolorindex] : '请选择颜色' }}
+              </view>  
+            </picker>
+              
+              
+              </view>
+
+            </view>
+       
+     
+         </view>
+         </view>
+
+
+
+
+
+
+
+    <view class="main">
+        <view class="title">
+          配置亮点
+        </view>
+        <view class="list">
+            <view class="item">
+        
+         <view class="selectitem" style='width:100%;height: 400rpx;'>
+         <textarea name="content" placeholder="请填写配置亮点" value="{{carsinfo.content}}" maxlength="-1"  />
+         
+         </view>
+
+            </view>
+          
+            
+        </view>
+
+
+    </view>
+
+
+
+
+    <view class="uploadlist">
+              <view class="title"><view>首图</view><view>(禁止上传不良图片)</view></view>
+              <view class="item"> 
+                 <view class="uploadimg" bindtap="chooseImg"  data-id="1" ><image src="../../imgs/icon/upload.png"></image>                 <view class="uploadtitle">上传照片最多1张</view>
+</view>
+              </view>
+          </view>
+
+
+
+        <view class="uploadlist" style='display:{{show1}};'>
+      <view class='imgsbox'>
+      <view class="weui-uploader">
+        <view class="img-v">
+          <view class="img" wx:for="{{imgs1}}" wx:for-item="item" wx:key="*this">
+            <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1"></image>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg1">
+              <image class='imgx' src='../../imgs/icon/x.png' style="width:15rpx;height:15rpx;"></image>删除
+            </view>
+          </view>
+
+      </view>
+      </view>
+      </view>
+      </view>
+
+
+      <view class="uploadlist">
+              <view class="title"><view>展示图</view><view style="color:red;">(禁止上传不良图片,请选中图片同时上传，分批次先上传的将会被覆盖)</view></view>
+              <view class="item"> 
+                 <view class="uploadimg" bindtap="chooseImg"  data-id="2" ><image src="../../imgs/icon/upload.png"></image>                 <view class="uploadtitle">上传照片最多9张</view>
+</view>
+              </view>
+          </view>
+
+
+
+        <view class="uploadlist" style='display:{{show2}};'>
+      <view class='imgsbox'>
+      <view class="weui-uploader">
+        <view class="img-v">
+          <view class="img" wx:for="{{imgs2}}" wx:for-item="item" wx:key="*this">
+            <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1"></image>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg2">
+              <image class='imgx' src='../../imgs/icon/x.png' style="width:15rpx;height:15rpx;"></image>删除
+            </view>
+          </view>
+
+      </view>
+      </view>
+      </view>
+      </view>
+
+
+
+
+
+
+
+
+
+
+ <view class="doagree">
+    <checkbox-group bindchange="doagree">
+
+    <checkbox value="1" checked=""/>我已阅读并同意<text style='color:blue;' bindtap='goHousexy'>《发布协议》</text>
+
+</checkbox-group>
+  </view>
+
+
+
+
+</view>
+
+
+
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+
+
+      <button class="footer"  formType="submit" >立即发布</button>
+    </view>
+</view>
+   </form>
+
+
+
+
+
+
+
+

@@ -1,0 +1,170 @@
+.newslist{
+  display: flex;
+  flex-direction: row;
+  width:750rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #efefef;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+  background:#FFF;
+  margin-top:10rpx;
+  }
+   .newslist .pic{
+  width:35%;
+  height: 220rpx;
+  line-height: 220rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding-left:20rpx;
+  }
+   .newslist .pic image{
+   width:260rpx;
+   height: 210rpx;
+   border-radius: 10rpx;
+  }
+  
+   .newslist .title{
+  width:65%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  height: 200rpx;
+  }
+   .newslist .title .address{
+    padding-left: 5%;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000; 
+  }
+  
+   .newslist .title .housearea{
+    padding-left: 5%;
+    text-align: left;
+    font-size: .7rem;
+    padding-top:5rpx;
+    padding-bottom: 5rpx;
+    color: #999; 
+  }
+  
+  
+  .newslist .title .address text{
+      color:#1aac19;
+  
+   }
+  
+  
+  
+   .newslist .title .perprice{
+      padding-left: 5%;
+      font-size: 1rem;
+      color:#d65408;
+      font-weight:bold;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  
+  }
+
+  
+  
+   .newslist .title .price{
+    padding-left: 5%;
+    text-align: left;
+    font-size: .6rem;
+  color: #6a6a6a; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60rpx;
+  line-height: 60rpx;
+  align-self: baseline;
+  width:450rpx;
+  }
+   .newslist .title .price view text{
+    
+  padding: 5rpx 7rpx;
+  border-radius: 3rpx;
+  margin-right: 5rpx;
+  height: 20rpx;
+  line-height:20rpx; 
+  color:#77af6e;
+    background: #f7f5f6;
+  
+  }
+   .newslist .title .price .money{
+  color:#d65408;
+  font-weight:bold;
+  font-size: .8rem;
+  padding-right: 10rpx;
+  }
+
+
+   .useroper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+   .useroper view{
+    margin-top: 20rpx;
+    width:120rpx;
+    height:50rpx;
+    background: #fff;
+    border-radius:10rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    border: 1rpx solid #ff9003;
+    color:#ff9003;
+    margin-left:15rpx;
+    margin-right: 10rpx;
+  
+  }
+  
+.oper{
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+}
+.oper button{
+  margin-right:20rpx;
+}
+
+
+.u-tap-btn{position: fixed;right: 20rpx;bottom: 150rpx;}
+.u-go-home{ display: flex; flex-direction:row;  justify-content: center; border-radius: 100%;width: 80rpx;height: 80rpx;border: 1px solid #eee;font-size: 20rpx;text-align: center;background-color: #fff;z-index: 2;line-height:80rpx; margin-bottom: 20rpx;}
+ .iconfont{padding-top:20rpx;font-size: 1.5rem;color:red; align-self: center;}
+
+ .iconfont image{
+
+  width:80rpx;
+  height: 80rpx;
+ 
+ }
+
+ .nodata{
+
+  width:750rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 300rpx;
+
+}
+.nodata image{
+
+  width:150rpx;
+  height: 150rpx;
+}
+ button::after{
+ 
+ border:0;
+ }

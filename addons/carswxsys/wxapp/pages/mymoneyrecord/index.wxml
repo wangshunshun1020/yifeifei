@@ -1,0 +1,20 @@
+<view class="scorelist">
+    <view class="title" >
+        <view>ID</view>
+        <view>推荐</view>
+        <view>佣金</view>
+         <view>类型</view>
+         <view>状态</view>
+         <view>时间</view>
+
+    </view>
+    <view class="list" wx:for="{{fxrecordlist}}"  >
+        <view>{{item.id}}</view>
+        <view>{{item.tjname}}</view>
+       <view>￥{{item.money}}</view>
+        <view>{{item.type == 0 ? '简历' : '企业'}}</view>
+        <view>{{item.status == 0 ? '未确认' :'已确认' }}</view>
+         <view>{{item.createtime}}</view>
+
+    </view>
+</view>

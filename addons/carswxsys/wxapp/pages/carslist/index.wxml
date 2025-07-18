@@ -1,0 +1,241 @@
+
+
+<view class="container_2" >
+  <view class="{{scrollTop>85 && carlen>4 ? 'header_2_fixed' : 'header_2'}}" >
+
+      <view class="search_2" bindtap='toSelectCars'>
+                <icon type="search" size="14"/><view>想买什么车</view>
+            </view>
+
+
+   
+
+            <view class="city_2" bindtap="toPubCars">
+            
+               <view> <image src="../../imgs/icon/cars.png" style="width:45rpx;height:45rpx;margin-top:18rpx;margin-right: 10rpx;" ></image></view>
+               <vew>卖车</vew>
+            </view>
+
+  
+    
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="{{scrollTop>145  && carlen>4 ? 'selectcars_fixed' : 'selectcars'}}">
+ 
+    <view class="selectcarslist">
+ 
+ <view class="itemselectcars  {{isuid == 0 ? 'red' : ''}}" bindtap="toGetcarslist" data-id="0" >  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{objectMultiArray}}" range-key="name">{{city}}</picker> <image src="../../imgs/icon/down.png" ></image>
+ 
+ 
+
+ </view>
+
+<view class="itemselectcars"  bindtap="toSelectNew" data-id="1">{{NewTitle}} <image src="../../imgs/icon/down.png" ></image>
+
+
+    
+
+           
+</view>
+<view class="itemselectcars" bindtap="toSelectBrand">品牌 <image src="../../imgs/icon/down.png" ></image></view>
+<view class="itemselectcars"  bindtap="toSelectPrice">价格<image src="../../imgs/icon/down.png" ></image></view>
+
+
+
+
+<view class="select_cars" hidden="{{isNew}}">
+                <view class="select_cars_list " bindtap='SelectNewItem'  data-title="最新上架" >
+                    <text>最新上架</text>
+           
+                    <image wx:if="{{NewTitle == '最新上架'}}" src="../../imgs/icon/dui.png"></image>
+                
+                </view>
+
+
+                <view class="select_cars_list " bindtap='SelectNewItem' data-title="价格最低" >
+                    <text>价格最低</text>
+                    <image wx:if="{{NewTitle == '价格最低'}}" src="../../imgs/icon/dui.png"></image>
+                </view>
+
+
+                <view class="select_cars_list " bindtap='SelectNewItem'  data-title="价格最高" >
+                    <text>价格最高</text>
+                    <image wx:if="{{NewTitle == '价格最高'}}" src="../../imgs/icon/dui.png"></image>
+                </view>
+
+                <view class="select_cars_list " bindtap='SelectNewItem'  data-title="里程最少" >
+                    <text>里程最少</text>
+                    <image wx:if="{{NewTitle == '里程最少'}}" src="../../imgs/icon/dui.png"></image>
+                </view>
+
+                <view class="select_cars_list " bindtap='SelectNewItem' data-title="车龄最短" >
+                    <text>车龄最短</text>
+                    <image wx:if="{{NewTitle == '车龄最短'}}" src="../../imgs/icon/dui.png"></image>
+                </view>
+
+
+
+                
+            </view>
+
+
+        </view>
+
+
+        <view class="selectres" hidden="{{isreset}}"> 
+                
+                <view class="itemres" wx:if="{{brandname!=''}}" >{{brandname}} <view><image src="../../imgs/icon/ca.png" bindtap="delBrand"  ></image></view></view>
+    
+             <view class="itemres" wx:if="{{PriceTitle!='价格'}}" >{{PriceTitle}} <view><image src="../../imgs/icon/ca.png" bindtap="delPrice" ></image></view></view>
+    
+    
+    
+             <view class="itemres" bindtap="toReset" ><view><image src="../../imgs/icon/reset.png"  ></image></view>重置 </view>
+    
+            </view>
+
+</view>
+
+<view class="small_overlay" hidden="{{isNew}}"  ></view>
+
+
+<view class="select_price" hidden="{{isPrice}}">
+
+
+    <view class="item"  bindtap='SelectPriceItem' data-title='不限价格' data-price="不限价格" >不限价格</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='0-3万' data-price="0-3" >0-3万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='3-5万'  data-price="3-5" >3-5万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='5-10万'  data-price="5-10">5-10万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='10-15万' data-price="10-15">10-15万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='15-20万' data-price="15-20">15-20万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='20-30万' data-price="20-30">20-30万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='30-40万' data-price="30-40">30-40万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='40-50万' data-price="40-50">40-50万</view>
+
+    <view class="item" bindtap='SelectPriceItem' data-title='50万以上' data-price="50-100">50万以上</view>
+    <view class="item" bindtap='SelectPriceItem' data-title='从低到高' data-price="从低到高">从低到高</view>
+    <view class="item" bindtap='SelectPriceItem' data-title='从高到低' data-price="从高到低">从高到低</view>
+</view>
+
+
+<view class="small_overlay" hidden="{{isPrice}}" ></view>
+
+
+
+
+
+
+
+
+
+<view class="newslist" wx:for="{{topcarslist}}" >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.id}}">
+                          <image src="{{item.thumb}}"></image>
+
+                          <image src='../../imgs/icon/top.png' class="imglabel" style='width:90rpx;height:90rpx;'></image>
+                      
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                <view class="housearea">{{item.provincename}}-{{item.cityname}} | {{item.carrate}}</view>
+                                <view class="perprice">
+                                <view>
+                                 {{item.money}} <text style="font-size:.7rem;">万</text>
+                                </view>
+                                 <button class="cu-btn round line-red shadow" style="margin-right:10rpx;">询底价</button>
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+
+
+
+
+
+
+
+
+<view class="newslist" wx:for="{{carslist}}" >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.id}}">
+                          <image src="{{item.thumb}}"></image>
+
+                      
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                <view class="housearea">{{item.provincename}}-{{item.cityname}} | {{item.carrate}}</view>
+                                <view class="perprice">
+                                <view>
+                                 {{item.money}} <text style="font-size:.7rem;">万</text>
+                                </view>
+                                 <button class="cu-btn round line-red shadow" style="margin-right:10rpx;">询底价</button>
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+
+ 
+
+
+
+</view>
+
+<view class="cu-bar tabbar foot bg-white">
+    <view class="action text-gray" bindtap="toIndex">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+    <view class="action text-red" bindtap="toCarslist">
+      <view class="cuIcon-similar"></view> 最新车辆
+    </view>
+    <view class="action text-gray add-action"  bindtap="toPubCars">
+      <button class="cu-btn cuIcon-add bg-red shadow"></button>
+      发布
+    </view>
+
+    
+    <view class="action text-gray" bindtap="toArticle">
+      <view class="cuIcon-notice">
+      </view>
+      行业资讯
+    </view>
+    <view class="action text-gray" bindtap="toMyuser">
+      <view class="cuIcon-my">
+      </view>
+      我的
+    </view>
+  </view>

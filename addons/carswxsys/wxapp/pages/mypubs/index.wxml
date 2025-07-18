@@ -1,0 +1,63 @@
+<view class="container">
+
+
+
+<view wx:if="{{carslist.length>0}}" wx:for="{{carslist}}" style="background: #fff;">
+<view class="newslist"  >
+                        <view class="pic" bindtap="toCarsDetail" data-id="{{item.id}}">
+                              <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" bindtap="toCarsDetail" data-id="{{item.id}}">
+                                  <view class="address">
+                                        <view>{{item.title}}</view>
+                                  </view>
+                                  <view class="housearea">{{item.provincename}} | {{item.cityname}} | {{item.areaname}}</view>
+                                <view class="housearea">{{item.carnumdate}} | {{item.carkm}}万公里 | {{item.carrate}}</view>
+                                <view class="housearea">置顶时间:{{item.toptime_str}}</view>
+                                <view class="perprice">
+                                          <view>
+                                         售价:{{item.money}} <text style="font-size:.7rem;">万</text>
+                                          </view>
+                                        
+                                </view>
+
+                                <view class="perprice">
+                                          <view>
+                                       状态:{{item.ischeck == 1 ? '审核通过' : '未审核'}}/{{item.status == 1 ? '已上架' : '未上架'}}
+                                          </view>
+                                        
+                                </view>
+
+                               
+
+                             
+
+
+                        </view>
+                        
+ </view>
+ <view class="useroper">
+
+      <view bindtap="toPayOrder" data-id="{{item.id}}">付费置顶</view> 
+      <view bindtap="toEditCars" data-id="{{item.id}}">编辑</view> 
+        
+        <view wx:if="{{item.status == 1}}"  bindtap="toDown" data-id="{{item.id}}">下架</view>
+
+        <view wx:if="{{item.status == 0}}"  bindtap="toUp" data-id="{{item.id}}">上架</view>
+        <view bindtap="delCars" data-id="{{item.id}}">删除</view>
+        </view>
+
+
+
+</view>
+
+
+
+
+
+<view class="nodata" wx:if="{{carslist.length == 0}}">
+    <image   src="../../imgs/icon/nodata.png"></image>
+</view>
+
+
+</view>

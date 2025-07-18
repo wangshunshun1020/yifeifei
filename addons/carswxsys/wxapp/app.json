@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+
+    "pages/bindwx/index",
+
+    "pages/ploitecar/index",
+    "pages/pubcars/index",
+    "pages/city/index",
+    "pages/user/index",
+    "pages/carslist/index",
+    "pages/register/index",
+    "pages/article/index",
+    "pages/myteam/index",
+    "pages/mymoneyrecord/index",
+    "pages/articledetail/index",
+    "pages/sysmsg/index",
+    "pages/noticedetail/index",
+    "pages/webview/index",
+    "pages/carsdetail/index",
+    "pages/selectbrand/index",
+    "pages/mypubs/index",
+    "pages/editcars/index",
+    "pages/findcarslist/index",
+    "pages/mysave/index",
+    "pages/payorder/index",
+    "pages/searchcars/index",
+    "pages/myorder/index",
+    "pages/tobrand/index"
+  ],
+  "requiredPrivateInfos": [
+    "chooseLocation",
+    "getLocation"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "enablePullDownRefresh": true
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    },
+    "openapi": [
+      "subscribeMessage.send"
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

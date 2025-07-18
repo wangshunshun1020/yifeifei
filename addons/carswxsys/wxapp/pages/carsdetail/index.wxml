@@ -1,0 +1,169 @@
+<import src="../../resource/wxParse/wxParse.wxml" />
+  <view class="container">
+
+
+
+      <view class="swiper-container">
+        <swiper class="swiper_box"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="height:{{imgheights[current]}}rpx;" bindchange="swiperChange">
+            <block wx:for="{{piclist}}" >
+                <swiper-item>
+                    <image  data-id="" src="{{item}}" class="slide-image"  bindload="imageLoad"  
+style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;" bindtap='previewImg' data-index="{{index}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{piclist}}" wx:key="index">  
+                <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+            </block>  
+        </view>   
+   </view>
+
+    <view class="cartitle">
+       
+         <view> {{data.money}} <text style='font-size:.7rem;'>万</text>
+        </view>
+<!--
+        <view class="newmoney"> <text class="newcars">新车指导价:</text><text class="delLine">{{data.newmoney}}万</text><text class="sprice" >省15万</text>
+        
+        </view>
+        -->
+
+         <view> {{data.title}}</view>
+  
+        <view class="innermoney" wx:if="{{level == 1}}"><view bindtap="lookinnermoney">{{innermoney}}万</view></view>
+     
+
+
+      </view>
+
+
+
+
+    
+
+
+  <!--case begin-->
+        <view class="case">
+                  
+          <view class="casetitle"><view></view><view>基本信息</view></view>
+
+                  <view class="caselist">
+
+
+                    <view class="caseitem" >
+                              <view>{{data.carkm}}万公里</view>
+                              <view>行驶里程</view>
+                    </view>
+
+                    <view class="caseitem" >
+                              <view>{{data.carnumdate}}</view>
+                              <view>初次上牌</view>
+                    </view>
+
+                    <view class="caseitem" >
+                              <view>{{data.carrate}}</view>
+                              <view>排放标准</view>
+                    </view>
+
+                    <view class="caseitem" >
+                              <view>{{data.carchange}}</view>
+                              <view>变速箱</view>
+                    </view>
+                    
+                    <view class="caseitem" >
+                              <view>{{data.carspl}}{{data.per}}</view>
+                              <view>排量</view>
+                    </view>
+
+                    <view class="caseitem" >
+                              <view>{{data.carcolor}}</view>
+                              <view>颜色</view>
+                    </view>
+
+                  </view>
+
+              
+    
+        </view>
+<!--case end-->
+
+    
+
+<view class="case">
+                  
+                  <view class="casetitle"><view></view><view>配置亮点</view></view>
+
+
+                  <view class="select_price">
+
+
+<rich-text nodes="{{data.content}}"></rich-text>
+
+
+</view>
+
+</view>
+
+
+
+
+
+
+
+
+      <view class="main"> 
+                  <view class="casetitle"><view></view><view>车辆详情</view></view>
+        <view class="content">
+                
+
+
+<image  wx:for="{{piclist}}"  src="{{item}}" bindtap='previewImg' data-index="{{index}}" />
+        
+        </view>
+    
+    </view>
+
+
+
+
+
+
+
+  </view> 
+
+
+
+
+
+
+  <view class="weixinmao-float">
+    <view class="weixinmao-foot">
+       <view class="footer"><button open-type="share"><text class="fa fa-share-square-o fa-lg"></text></button></view>
+
+       <view class="footer" bindtap='toPloitecar' class="black" data-id="{{data.id}}" > <text class="fa fa-black-tie fa-lg"></text> 举报</view>
+      <view class="footer" bindtap='doSaveCars' class="{{savestatus == 1 ? 'red' : 'black' }}" data-id="{{data.id}}" > <text class="fa fa-heart-o fa-lg"></text> 收藏</view>
+
+       <view class="footer"  bindtap="doCall" data-tel="{{data.tel}}"  > 
+
+联系车主
+ 
+
+     
+     </view>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

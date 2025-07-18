@@ -1,0 +1,120 @@
+<!--weixinmao_hssy/pages/user/index.wxml-->
+<view class="container">
+
+
+ 
+<view class="header" style=' background:#eb4f38;'>
+
+      <view  hidden="{{isuser}}">
+               <view class="pic" >
+               
+                 <image src="../../imgs/icon/male1.png"></image>
+                           <view class="userinfo">
+                           
+                           <view>新用户</view>
+                           
+                             <view><button bindtap="bindGetUserInfo"  style='background:#fff;color:#eb4f38;font-size:.7rem;width:200rpx;margin-right:400rpx;'>完善资料</button></view>
+
+                            
+                             </view>
+
+               </view>
+
+   </view>
+
+
+       <view hidden="{{!isuser}}">
+               <view class="pic" >
+                 <image src="{{userinfo.avatarUrl ? userinfo.avatarUrl :'../../imgs/icon/male1.png' }}"></image>
+                           <view class="userinfo">
+                           
+                           <view>{{userinfo.nickname}}</view>
+                           
+                   
+                             </view>
+
+               </view>
+
+   </view>
+
+
+ 
+
+
+
+   <view class="role" bindtap="bindGetUserInfo">我的资料</view>
+
+  </view>
+
+
+  <view class="noteoper" >
+
+
+<view class="item_note" bindtap="toMypubs">
+    <view> <image src="../../imgs/icon/backtop.png"></image></view>
+    <view class="item_title">
+      <view>我的发布</view>
+      <view>免费发布信息</view>
+    </view>
+</view>
+
+
+<view class="item_note" bindtap="toPubcars">
+    <view><image src="../../imgs/icon/refresh.png"></image></view>
+    <view class="item_title">
+      <view>发布二手车</view>
+      <view>免费发布</view>
+    </view>
+</view>
+
+
+</view>
+
+
+
+
+<view class="list">
+     <view class="item" bindtap="toMyorder"><image src="../../imgs/icon/msgorder.png"></image><view style="margin-left:16rpx;">我的订单</view></view>   
+
+
+     <view class="item" bindtap="toMySave"><image src="../../imgs/icon/qorder.png"></image><view style="margin-left:16rpx;">我的收藏</view></view>
+           
+
+<!--
+    <view class="item" bindtap="toRoborder"><image src="../../imgs/icon/qorder.png"></image><view style="margin-left:16rpx;">帮助中心</view></view>
+-->
+
+ 
+  </view>
+
+
+
+
+</view>
+
+
+<view class="cu-bar tabbar foot bg-white">
+    <view class="action text-gray" bindtap="toIndex">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+    <view class="action text-gray" bindtap="toCarslist">
+      <view class="cuIcon-similar"></view> 最新车辆
+    </view>
+    <view class="action text-gray add-action"  bindtap="toPubCars">
+      <button class="cu-btn cuIcon-add bg-red shadow"></button>
+      发布
+    </view>
+
+    
+    <view class="action text-gray" bindtap="toArticle">
+      <view class="cuIcon-notice">
+      </view>
+      行业资讯
+    </view>
+    <view class="action text-red" bindtap="toMyuser">
+      <view class="cuIcon-my">
+      </view>
+      我的
+    </view>
+    
+  </view>

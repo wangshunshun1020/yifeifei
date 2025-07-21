@@ -51,8 +51,7 @@ class Brand extends BaseModel
         // 获取所有符合条件的数据，按 firstname 排序
         $allBrands = $this->where($map)
             ->order('firstname')
-            ->select()
-            ->toArray(); // ThinkPHP5中记得加 toArray()
+            ->select(); // ThinkPHP5中记得加 toArray()
 
         $groupedBrands = [];
 

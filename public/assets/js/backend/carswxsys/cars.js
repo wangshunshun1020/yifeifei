@@ -27,19 +27,85 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'id', title: __('id'), operate:false},
                         {field: 'nickname', title: __('nickname'), operate:false,},
-                        {field: 'provincename', title: __('provinceid'), operate:false,},
-                        {field: 'cityname', title: __('cityid'), operate:false,},
-                        {field: 'areaname', title: __('areaid'), operate:false,},
-                        {field: 'car_number_city', title: __('注册号'), operate:false,},
-                        {field: 'brandname', title: __('brandname')},
-                        {field: 'scrap_time', title: __('报废日期')},
-                        {field: 'transfer_num', title: __('过户次数')},
-                        {field: 'sbrandname', title: __('sbrandname'), operate:false},
                         {field: 'title', title: __('title')},
                         {field: 'thumb', title: __('thumb'), operate:false, events: Table.api.events.image, formatter: Table.api.formatter.image},
+                        // {field: 'provincename', title: __('provinceid'), operate:false,},
+                        // {field: 'cityname', title: __('cityid'), operate:false,},
+                        // {field: 'areaname', title: __('areaid'), operate:false,},
+                        // {field: 'car_number_city', title: __('注册号'), operate:false,},
+                        {field: 'brandname', title: __('brandname')},
+                        {field: 'sbrandname', title: __('sbrandname'), operate:false},
+                        {field: 'is_sell', title: '出租/出售',searchList: {"1":"出售","0":"出租"},  operate:false,
+                            formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">出售</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">出租</span>';
+                                }
+                                return value;
+                            }
+                            },
+
                         {field: 'money', title: __('售价') ,operate:false,},
+                        // {field: 'scrap_time', title: __('报废日期')},
+                        // {field: 'transfer_num', title: __('过户次数')},
+                        {field: 'ischeck', title: __('ischeck'), operate:false, formatter: Table.api.formatter.toggle},
+                        {field: 'status', title: __('status'), operate:false, formatter: Table.api.formatter.toggle},
+                        {field: 'factory_date', title: '出厂时间'},
                         {field: 'carkm', title: __('carkm'), operate:false,},
-                        {field: 'carnumdate', title: __('carnumdate'), operate:false,},
+                        {field: 'airworthy', title: '持续适航',searchList: {"1":"是","0":"否"},       formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">是</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">否</span>';
+                                }
+                                return value;
+                            }},
+
+
+                        {field: 'history_complete', title: '履历齐全', operate:false, searchList: {"1":"是","0":"否"},formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">是</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">否</span>';
+                                }
+                                return value;
+                            }
+                            },
+                        {field: 'accident_history', title: '事故历史'},
+                        {field: 'usage_env', title: '使用环境'},
+                        {field: 'modification_record', title: '改装记录'},
+                        {field: 'carcolor', title: '颜色', operate:false,},
+
+                        {field: 'insurance_record', title: '保险记录'},
+                        {field: 'property_dispute', title: '产权纠纷', searchList: {"1":"是","0":"否"},formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">是</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">否</span>';
+                                }
+                                return value;
+                            }},
+                        {field: 'is_domestic', title: '国内现机', searchList: {"1":"是","0":"否"}, formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">是</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">否</span>';
+                                }
+                                return value;
+                            }},
+                        {field: 'can_view_deliver', title: '可看机交付', searchList: {"1":"是","0":"否"},formatter: function(value, row, index) {
+                                if (value === 1 || value === '1') {
+                                    return '<span style="color: green;">是</span>';
+                                } else if (value === 0 || value === '0') {
+                                    return '<span style="color: red;">否</span>';
+                                }
+                                return value;
+                            }},
+                        // {field: 'carnumdate', title: __('carnumdate'), operate:false,},
+
+
+
                         {
                             field: 'sort',
                             title: __('sort'),
@@ -55,9 +121,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                             }
                             , operate:false
                         },
-                        {field: 'ischeck', title: __('ischeck'), operate:false, formatter: Table.api.formatter.toggle},
-                        {field: 'status', title: __('status'), operate:false, formatter: Table.api.formatter.toggle},
-                        {field: 'operate', title: __('Operate'), operate:false, table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                        {field: 'operate', title: __('Operate'), operate:false, table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate},
+
+
                     ]
                 ]
             });

@@ -19,10 +19,23 @@
         public function getCarsByWhere($map, $Nowpage, $limits, $od)
         {
             return $this->alias ('g')
-                ->field('g.transfer_num, g.scrap_time, g.car_number_city, p.name AS provincename,u.nickname AS nickname,g.uid AS uid, c.name AS cityname, a.name AS areaname,g.id AS id, g.title AS title ,g.thumb AS thumb, g.tel AS tel,g.money AS money, g.newmoney AS newmoney,g.carkm AS carkm,g.carnumdate AS carnumdate,g.carcolor AS carcolor,g.carrate AS carrate,g.carspl AS carspl,g.createtime AS createtime,g.sort AS sort, g.status AS status,g.ischeck AS ischeck ,g.uid AS uid,g.issale AS issale,b.name AS brandname , e.name AS sbrandname ,g.toptime AS toptime')
-                ->join('carswxsys_city c', 'g.cityid = c.id','left')
-                ->join('carswxsys_area a', 'g.areaid = a.id','left')
-                ->join('carswxsys_province p', 'p.id = g.provinceid','left')
+                ->field('g.transfer_num, g.scrap_time, 
+            u.nickname AS nickname, g.uid AS uid,
+            g.id AS id, g.title AS title, g.thumb AS thumb, g.tel AS tel,
+            g.money AS money, g.newmoney AS newmoney, g.carkm AS carkm,
+            g.carnumdate AS carnumdate, g.carcolor AS carcolor,
+            g.carrate AS carrate, g.carspl AS carspl,
+            g.createtime AS createtime, g.sort AS sort, g.status AS status,
+            g.ischeck AS ischeck, g.uid AS uid, g.issale AS issale,
+            b.name AS brandname, e.name AS sbrandname,
+            g.toptime AS toptime,
+            g.factory_date, g.airworthy, g.history_complete,
+            g.accident_history, g.usage_env, g.modification_record,
+            g.insurance_record, g.property_dispute,
+            g.is_domestic, g.can_view_deliver,g.is_sell')
+//                ->join('carswxsys_city c', 'g.cityid = c.id','left')
+//                ->join('carswxsys_area a', 'g.areaid = a.id','left')
+//                ->join('carswxsys_province p', 'p.id = g.provinceid','left')
                 ->join('carswxsys_brand b', 'b.id = g.brandid','left')
                 ->join('carswxsys_brandcars e', 'e.id = g.sbrandid','left')
                 ->join('carswxsys_user u', 'u.id = g.uid','left')
@@ -71,8 +84,14 @@
                 Db::commit();// 提交事务
                 return ['code' => 200, 'data' => '', 'msg' => '添加成功'];
             } catch (\Exception $e) {
-                
+
+
                 Db::rollback();// 回滚事务
+//                return [
+//                    'code' => 100,
+//                    'data' => '',
+//                    'msg'  => '添加失败: ' . $e->getMessage()
+//                ];
                 return ['code' => 100, 'data' => '', 'msg' => '添加失败'];
             }
         }

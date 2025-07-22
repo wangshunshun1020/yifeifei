@@ -1,8 +1,4 @@
 <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
-
-
-
-
     <input type="hidden" value="{$row.id}" name="row[id]"/>
 
     <div class="form-group">
@@ -13,99 +9,11 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('provinceid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="provinceid form-control" name="row[provinceid]"  id="selectProvince"   >
-
-                <option value="">请选择省份</option>
-                {foreach name="provincelist" item="v"}
-                <option value="{$v.id}"   {eq name="$row.provinceid" value="$v.id"}selected{/eq}  >{$v.name}</option>
-                {/foreach}
-            </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('cityid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="cityid form-control" name="row[cityid]"  id="selectCity"   >
-
-                <option value="">请选择城市</option>
-                {foreach name="citylist" item="v"}
-                <option value="{$v.id}"   {eq name="$row.cityid" value="$v.id"}selected{/eq}  >{$v.name}</option>
-                {/foreach}
-
-            </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('areaid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="areaid form-control" name="row[areaid]"  id="selectArea"   >
-
-                <option value="0">请选择区域</option>
-                {foreach name="arealist" item="v"}
-                <option value="{$v.id}"   {eq name="$row.areaid" value="$v.id"}selected{/eq}  >{$v.name}</option>
-                {/foreach}
-            </select>
-        </div>
-    </div>
-
-
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('注册号')}(如：B-1234):</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-car_number_city" data-rule="required" class="form-control" name="row[car_number_city]" type="text" value="{$row.car_number_city|htmlentities}">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('brandid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="shopid form-control" name="row[brandid]"  id="selectBrand"   >
-
-                <option value="0">请选择品牌</option>
-
-                {foreach name="brandlist" item="v"}
-                <option value="{$v.id}" {eq name="$row.brandid" value="$v.id"}selected{/eq}>{$v.name}</option>
-                {/foreach}
-
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('sbrandid')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="sbrandid form-control" name="row[sbrandid]"  id="sbrandid"   >
-
-                <option value="0">请选择车系</option>
-
-                {foreach name="brandcarslist" item="v"}
-                <option value="{$v.id}" {eq name="$row.sbrandid" value="$v.id"}selected{/eq}>{$v.name}</option>
-                {/foreach}
-
-            </select>
-        </div>
-    </div>
-
-
-
-
-    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('title')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="{$row.title|htmlentities}">
         </div>
     </div>
-
-
-
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('售价')}:</label>
@@ -114,121 +22,125 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('飞行小时数')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-carkm" data-rule="required" class="form-control" name="row[carkm]" type="text" value="{$row.carkm|htmlentities}">
-        </div>
-    </div>
-    
-    
-    
-    
-    
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('注册日期')}:</label>
+        <label class="control-label col-xs-12 col-sm-2" >类型:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carnumdate" data-rule="required" class="form-control" name="row[carnumdate]" type="text" value="{$row.carnumdate|htmlentities}">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('退役日期')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-scrap_time" data-rule="required" class="form-control" name="row[scrap_time]" type="text" value="{$row.scrap_time|htmlentities}">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('过户次数')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-transfer_num" data-rule="required" class="form-control" name="row[transfer_num]" type="text" value="{$row.transfer_num|htmlentities}">
-        </div>
-    </div>
-
-
-
-
-
-    <div class="form-group" style="display: none;">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('carrate')}:</label>
-        <div class="col-xs-12 col-sm-8">
-
-            <select class="carrate form-control" name="row[carrate]"     >
-                <option value="" >请选择排放</option>
-                <option value="国一" {eq name="$row.carrate" value="国一"}selected{/eq} >国一</option>
-                <option value="国二" {eq name="$row.carrate" value="国二"}selected{/eq} >国二</option>
-                <option value="国三" {eq name="$row.carrate" value="国三"}selected{/eq} >国三</option>
-                <option value="国四" {eq name="$row.carrate" value="国四"}selected{/eq} >国四</option>
-                <option value="国五" {eq name="$row.carrate" value="国五"}selected{/eq} >国五</option>
-                <option value="国六" {eq name="$row.carrate" value="国六"}selected{/eq} >国六</option>
-                <option value="欧一" {eq name="$row.carrate" value="欧一"}selected{/eq} >欧一</option>
-                <option value="欧二" {eq name="$row.carrate" value="欧二"}selected{/eq} >欧二</option>
-                <option value="欧三" {eq name="$row.carrate" value="欧三"}selected{/eq} >欧三</option>
-                <option value="欧四" {eq name="$row.carrate" value="欧四""}selected{/eq} >欧四</option>
-                <option value="欧五" {eq name="$row.carrate" value="欧五"}selected{/eq} >欧五</option>
-                <option value="欧六" {eq name="$row.carrate" value="欧六"}selected{/eq} >欧六</option>
+            <select class="brandid form-control" name="row[is_sell]"  id="selectType"   >
+                <option value="1" {eq name="$row.is_sell" value="1"}selected{/eq}>出售</option>
+                <option value="0" {eq name="$row.is_sell" value="0"}selected{/eq}>出租</option>
             </select>
         </div>
     </div>
 
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" >{:__('发动机型号/推力')}:</label>
+        <label class="control-label col-xs-12 col-sm-2" >{:__('brandid')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carspl" data-rule="required" class="form-control" name="row[carspl]" type="text" value="{$row.carspl|htmlentities}">
+            <select class="brandid form-control" name="row[brandid]" id="selectBrand">
+                <option value="0" {eq name="$row.brandid" value="0"}selected{/eq}>请选择品牌</option>
+                {foreach name="brandlist" item="v"}
+                <option value="{$v.id}" {eq name="$row.brandid" value="$v.id"}selected{/eq}>{$v.name}</option>
+                {/foreach}
+            </select>
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" >{:__('sbrandid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="sbrandid form-control" name="row[sbrandid]" id="sbrandid">
+                <option value="0" {eq name="$row.sbrandid" value="0"}selected{/eq}>请选择车系</option>
+                {foreach name="brandcarslist" item="v"}
+                <option value="{$v.id}" {eq name="$row.sbrandid" value="$v.id"}selected{/eq}>{$v.name}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" >{:__('per')}:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
-    <!--        <div class="radio">-->
-    <!--            <label for="row[per]-normal"><input  name="row[per]" type="radio" value="L"  {$row.per == 'L' ? 'checked' :''}> L</label>-->
-    <!--            <label for="row[per]-hidden"><input  name="row[per]" type="radio" value="T" {$row.per == 'T' ? 'checked' :''} > T</label>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">出厂时间:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-factory_date" class="form-control" name="row[factory_date]" type="date" value="{$row.factory_date|default=''}">
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" >{:__('carfuel')}:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[airworthy]">
+                <option value="1" {eq name="$row.airworthy" value="1"}selected{/eq}>是</option>
+                <option value="0" {eq name="$row.airworthy" value="0"}selected{/eq}>否</option>
+            </select>
+        </div>
+    </div>
 
-    <!--        <select class="carfuel form-control" name="row[carfuel]"     >-->
-    <!--            <option value="" >请选择燃料类型</option>-->
-    <!--            <option value="汽油" {eq name="$row.carfuel" value="汽油"}selected{/eq} >汽油</option>-->
-    <!--            <option value="柴油" {eq name="$row.carfuel" value="柴油"}selected{/eq}  >柴油</option>-->
-    <!--            <option value="油电混合" {eq name="$row.carfuel" value="油电混合"}selected{/eq}  >油电混合</option>-->
-    <!--            <option value="增程式" {eq name="$row.carfuel" value="增程式"}selected{/eq} >增程式</option>-->
-    <!--            <option value="插电式混合动力" {eq name="$row.carfuel" value="插电式混合动力"}selected{/eq}  >插电式混合动力</option>-->
-    <!--            <option value="纯电力" {eq name="$row.carfuel" value="纯电力"}selected{/eq}  >纯电力</option>-->
-    <!--            <option value="氢燃料电池" {eq name="$row.carfuel" value="氢燃料电池"}selected{/eq}  >氢燃料电池</option>-->
-    <!--            <option value="汽油+48V轻混系统" {eq name="$row.carfuel" value="汽油+48V轻混系统"}selected{/eq}  >汽油+48V轻混系统</option>-->
-    <!--            <option value="油气混合" {eq name="$row.carfuel" value="油气混合"}selected{/eq}  >油气混合</option>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[history_complete]">
+                <option value="1" {eq name="$row.history_complete" value="1"}selected{/eq}>是</option>
+                <option value="0" {eq name="$row.history_complete" value="0"}selected{/eq}>否</option>
+            </select>
+        </div>
+    </div>
 
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">事故及损伤历史:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[accident_history]">{$row.accident_history|htmlentities}</textarea>
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" >{:__('carpos')}:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">使用环境:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" name="row[usage_env]" type="text" value="{$row.usage_env|htmlentities}">
+        </div>
+    </div>
 
-    <!--        <select class="carpos form-control" name="row[carpos]"     >-->
-    <!--            <option value="" >请选择座位</option>-->
-    <!--            <option value="2座" {eq name="$row.carpos" value="2座"}selected{/eq} >2座</option>-->
-    <!--            <option value="4座" {eq name="$row.carpos" value="4座"}selected{/eq} >4座</option>-->
-    <!--            <option value="5座" {eq name="$row.carpos" value="5座"}selected{/eq} >5座</option>-->
-    <!--            <option value="6座" {eq name="$row.carpos" value="6座"}selected{/eq} >6座</option>-->
-    <!--            <option value="7座及以上" {eq name="$row.carpos" value="7座及以上"}selected{/eq}>7座及以上</option>-->
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配置及改装记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[modification_record]">{$row.modification_record|htmlentities}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">保险记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[insurance_record]">{$row.insurance_record|htmlentities}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[property_dispute]">
+                <option value="0" {eq name="$row.property_dispute" value="0"}selected{/eq}>无</option>
+                <option value="1" {eq name="$row.property_dispute" value="1"}selected{/eq}>有</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[is_domestic]">
+                <option value="1" {eq name="$row.is_domestic" value="1"}selected{/eq}>是</option>
+                <option value="0" {eq name="$row.is_domestic" value="0"}selected{/eq}>否</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[can_view_deliver]">
+                <option value="1" {eq name="$row.can_view_deliver" value="1"}selected{/eq}>是</option>
+                <option value="0" {eq name="$row.can_view_deliver" value="0"}selected{/eq}>否</option>
+            </select>
+        </div>
+    </div>
 
 
     <div class="form-group">
@@ -259,25 +171,10 @@
         </div>
     </div>
 
-
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" >{:__('special')}:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
-    <!--        <div class="checkbox">-->
-    <!--            {foreach name="speciallist" item="v"}-->
-    <!--            <label for="row[special]-{$key}"><input id="row[special]-{$key}"  name="row[special][]" type="checkbox" value="{$v}"  {in name="$v" value="$row.special" type="in"} checked {/in} >{$v}</label>-->
-
-    <!--            {/foreach}-->
-
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('tel')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text"  value="{$row.tel|htmlentities}">
+            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text" value="{$row.tel|htmlentities}">
         </div>
     </div>
 
@@ -297,7 +194,7 @@
     </div>
 
     <div class="form-group" data-field="images">
-        <label for="c-image" class="control-label col-xs-12 col-sm-2">{:__('thumb_url')}</label>
+        <label for="c-images" class="control-label col-xs-12 col-sm-2">{:__('thumb_url')}</label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
                 <input id="c-images" class="form-control" size="50" name="row[thumb_url]" type="text" value="{$row.thumb_url|htmlentities}" placeholder="组图可以直接从正文进行提取,可以为空">
@@ -311,13 +208,10 @@
         </div>
     </div>
 
-
     <div class="form-group" data-field="description">
-        <label for="c-description" class="control-label col-xs-12 col-sm-2">{:__('content')}</label>
+        <label for="c-content" class="control-label col-xs-12 col-sm-2">{:__('content')}</label>
         <div class="col-xs-12 col-sm-8">
-
             <textarea id="c-content" class="form-control editor" name="row[content]" cols="30" rows="10">{$row.content|htmlentities}</textarea>
-
         </div>
     </div>
 
@@ -325,8 +219,8 @@
         <label class="control-label col-xs-12 col-sm-2" >{:__('isrecommand')}:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[isrecommand]-normal"><input  name="row[isrecommand]" type="radio" value="1"  {$row.isrecommand == 1 ? 'checked' :''}> 是 </label>
-                <label for="row[isrecommand]-hidden"><input  name="row[isrecommand]" type="radio" value="0"  {$row.isrecommand == 0 ? 'checked' :''}>否</label>
+                <label><input name="row[isrecommand]" type="radio" value="1" {$row.isrecommand == 1 ? 'checked' : ''}> 是 </label>
+                <label><input name="row[isrecommand]" type="radio" value="0" {$row.isrecommand == 0 ? 'checked' : ''}> 否</label>
             </div>
         </div>
     </div>
@@ -335,26 +229,21 @@
         <label class="control-label col-xs-12 col-sm-2" >{:__('ischeck')}:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[ischeck]-normal"><input  name="row[ischeck]" type="radio" value="1" {$row.ischeck == 1 ? 'checked' :''}> 启用</label>
-                <label for="row[ischeck]-hidden"><input  name="row[ischeck]" type="radio" value="0" {$row.ischeck == 0 ? 'checked' :''}> 禁用</label>
+                <label><input name="row[ischeck]" type="radio" value="1" {$row.ischeck == 1 ? 'checked' : ''}> 启用</label>
+                <label><input name="row[ischeck]" type="radio" value="0" {$row.ischeck == 0 ? 'checked' : ''}> 禁用</label>
             </div>
         </div>
     </div>
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('status')}:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[status]-normal"><input  name="row[status]" type="radio" value="1" {$row.status == 1 ? 'checked' :''}> 启用</label>
-                <label for="row[status]-hidden"><input  name="row[status]" type="radio" value="0" {$row.status == 0 ? 'checked' :''}> 禁用</label>
+                <label><input name="row[status]" type="radio" value="1" {$row.status == 1 ? 'checked' : ''}> 启用</label>
+                <label><input name="row[status]" type="radio" value="0" {$row.status == 0 ? 'checked' : ''}> 禁用</label>
             </div>
         </div>
     </div>
-
-
-
-
 
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>

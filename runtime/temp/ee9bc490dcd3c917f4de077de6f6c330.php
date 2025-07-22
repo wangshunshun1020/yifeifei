@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\add.html";i:1752820741;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\add.html";i:1753160895;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,12 +60,6 @@
                             <?php endif; ?>
                             <div class="content">
                                 <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
-
-
-
-
-
-
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sort'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
@@ -74,50 +68,29 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('provinceid'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('title'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <select class="provinceid form-control" name="row[provinceid]"  id="selectProvince"   >
+            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text">
+        </div>
+    </div>
 
-                <option value="">请选择省份</option>
-                <?php if(is_array($provincelist) || $provincelist instanceof \think\Collection || $provincelist instanceof \think\Paginator): if( count($provincelist)==0 ) : echo "" ;else: foreach($provincelist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>" ><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('售价'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-money" data-rule="required" class="form-control" name="row[money]" type="text">
         </div>
     </div>
 
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('cityid'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2" >类型:</label>
         <div class="col-xs-12 col-sm-8">
-            <select class="cityid form-control" name="row[cityid]"  id="selectCity"   >
-
-                <option value="0">请选择城市</option>
-
+            <select class="brandid form-control" name="row[is_sell]"  id="selectType"   >
+                <option value="1">出售</option>
+                <option value="0">出租</option>
             </select>
         </div>
     </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('areaid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="areaid form-control" name="row[areaid]"  id="selectArea"   >
-
-                <option value="0">请选择区域</option>
-
-            </select>
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('注册号'); ?>(如：B-1234):</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-car_number_city" data-rule="required" class="form-control" name="row[car_number_city]" type="text" >
-        </div>
-    </div>
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('brandid'); ?>:</label>
@@ -146,88 +119,90 @@
     </div>
 
 
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('title'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2">出厂时间:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text">
-        </div>
-    </div>
-
-
-
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('售价'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-money" data-rule="required" class="form-control" name="row[money]" type="text">
+            <input id="c-factory_date" class="form-control" name="row[factory_date]" type="date">
         </div>
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('飞行小时数'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carkm" data-rule="required" class="form-control" name="row[carkm]" type="text">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('注册日期'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-carnumdate" data-rule="required" class="form-control" name="row[carnumdate]" type="text">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('退役日期'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-scrap_time" data-rule="required" class="form-control" name="row[scrap_time]" type="text">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('过户次数'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-transfer_num" data-rule="required" class="form-control" name="row[transfer_num]" type="text">
-        </div>
-    </div>
-
-
-    <div class="form-group" style="display: none;">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('carrate'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-
-            <select class="carrate form-control" name="row[carrate]"     >
-                <option value="" >请选择排放</option>
-                <option value="国一" >国一</option>
-                <option value="国二" >国二</option>
-                <option value="国三" >国三</option>
-                <option value="国四" >国四</option>
-                <option value="国五" >国五</option>
-                <option value="国六" >国六</option>
-                <option value="欧一" >欧一</option>
-                <option value="欧二" >欧二</option>
-                <option value="欧三" >欧三</option>
-                <option value="欧四" >欧四</option>
-                <option value="欧五" >欧五</option>
-                <option value="欧六" >欧六</option>
+            <select class="form-control" name="row[airworthy]">
+                <option value="1">是</option>
+                <option value="0">否</option>
             </select>
         </div>
     </div>
 
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('发动机型号/推力'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carspl" data-rule="required" class="form-control" name="row[carspl]" type="text">
+            <select class="form-control" name="row[history_complete]">
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
         </div>
     </div>
- 
 
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">事故及损伤历史:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[accident_history]"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">使用环境:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" name="row[usage_env]" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配置及改装记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[modification_record]"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">保险记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[insurance_record]"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[property_dispute]">
+                <option value="0">无</option>
+                <option value="1">有</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[is_domestic]">
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[can_view_deliver]">
+                <option value="1">是</option>
+                <option value="0">否</option>
+            </select>
+        </div>
+    </div>
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('carcolor'); ?>:</label>
@@ -256,6 +231,8 @@
             </select>
         </div>
     </div>
+
+
 
 
 

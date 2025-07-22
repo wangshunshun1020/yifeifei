@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1752820741;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1753160975;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,10 +60,6 @@
                             <?php endif; ?>
                             <div class="content">
                                 <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
-
-
-
-
     <input type="hidden" value="<?php echo $row['id']; ?>" name="row[id]"/>
 
     <div class="form-group">
@@ -74,99 +70,11 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('provinceid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="provinceid form-control" name="row[provinceid]"  id="selectProvince"   >
-
-                <option value="">请选择省份</option>
-                <?php if(is_array($provincelist) || $provincelist instanceof \think\Collection || $provincelist instanceof \think\Paginator): if( count($provincelist)==0 ) : echo "" ;else: foreach($provincelist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>"   <?php if($row['provinceid'] == $v['id']): ?>selected<?php endif; ?>  ><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('cityid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="cityid form-control" name="row[cityid]"  id="selectCity"   >
-
-                <option value="">请选择城市</option>
-                <?php if(is_array($citylist) || $citylist instanceof \think\Collection || $citylist instanceof \think\Paginator): if( count($citylist)==0 ) : echo "" ;else: foreach($citylist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>"   <?php if($row['cityid'] == $v['id']): ?>selected<?php endif; ?>  ><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('areaid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="areaid form-control" name="row[areaid]"  id="selectArea"   >
-
-                <option value="0">请选择区域</option>
-                <?php if(is_array($arealist) || $arealist instanceof \think\Collection || $arealist instanceof \think\Paginator): if( count($arealist)==0 ) : echo "" ;else: foreach($arealist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>"   <?php if($row['areaid'] == $v['id']): ?>selected<?php endif; ?>  ><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
-        </div>
-    </div>
-
-
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('注册号'); ?>(如：B-1234):</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-car_number_city" data-rule="required" class="form-control" name="row[car_number_city]" type="text" value="<?php echo htmlentities($row['car_number_city']); ?>">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('brandid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="shopid form-control" name="row[brandid]"  id="selectBrand"   >
-
-                <option value="0">请选择品牌</option>
-
-                <?php if(is_array($brandlist) || $brandlist instanceof \think\Collection || $brandlist instanceof \think\Paginator): if( count($brandlist)==0 ) : echo "" ;else: foreach($brandlist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>" <?php if($row['brandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="sbrandid form-control" name="row[sbrandid]"  id="sbrandid"   >
-
-                <option value="0">请选择车系</option>
-
-                <?php if(is_array($brandcarslist) || $brandcarslist instanceof \think\Collection || $brandcarslist instanceof \think\Paginator): if( count($brandcarslist)==0 ) : echo "" ;else: foreach($brandcarslist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>" <?php if($row['sbrandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-
-            </select>
-        </div>
-    </div>
-
-
-
-
-    <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('title'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="<?php echo htmlentities($row['title']); ?>">
         </div>
     </div>
-
-
-
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('售价'); ?>:</label>
@@ -175,121 +83,125 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('飞行小时数'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-carkm" data-rule="required" class="form-control" name="row[carkm]" type="text" value="<?php echo htmlentities($row['carkm']); ?>">
-        </div>
-    </div>
-    
-    
-    
-    
-    
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('注册日期'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2" >类型:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carnumdate" data-rule="required" class="form-control" name="row[carnumdate]" type="text" value="<?php echo htmlentities($row['carnumdate']); ?>">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('退役日期'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-scrap_time" data-rule="required" class="form-control" name="row[scrap_time]" type="text" value="<?php echo htmlentities($row['scrap_time']); ?>">
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('过户次数'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-transfer_num" data-rule="required" class="form-control" name="row[transfer_num]" type="text" value="<?php echo htmlentities($row['transfer_num']); ?>">
-        </div>
-    </div>
-
-
-
-
-
-    <div class="form-group" style="display: none;">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('carrate'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-
-            <select class="carrate form-control" name="row[carrate]"     >
-                <option value="" >请选择排放</option>
-                <option value="国一" <?php if($row['carrate'] == '国一'): ?>selected<?php endif; ?> >国一</option>
-                <option value="国二" <?php if($row['carrate'] == '国二'): ?>selected<?php endif; ?> >国二</option>
-                <option value="国三" <?php if($row['carrate'] == '国三'): ?>selected<?php endif; ?> >国三</option>
-                <option value="国四" <?php if($row['carrate'] == '国四'): ?>selected<?php endif; ?> >国四</option>
-                <option value="国五" <?php if($row['carrate'] == '国五'): ?>selected<?php endif; ?> >国五</option>
-                <option value="国六" <?php if($row['carrate'] == '国六'): ?>selected<?php endif; ?> >国六</option>
-                <option value="欧一" <?php if($row['carrate'] == '欧一'): ?>selected<?php endif; ?> >欧一</option>
-                <option value="欧二" <?php if($row['carrate'] == '欧二'): ?>selected<?php endif; ?> >欧二</option>
-                <option value="欧三" <?php if($row['carrate'] == '欧三'): ?>selected<?php endif; ?> >欧三</option>
-                <option value="欧四" <?php if($row['carrate'] == '欧四'): ?>selected<?php endif; ?> >欧四</option>
-                <option value="欧五" <?php if($row['carrate'] == '欧五'): ?>selected<?php endif; ?> >欧五</option>
-                <option value="欧六" <?php if($row['carrate'] == '欧六'): ?>selected<?php endif; ?> >欧六</option>
+            <select class="brandid form-control" name="row[is_sell]"  id="selectType"   >
+                <option value="1" <?php if($row['is_sell'] == '1'): ?>selected<?php endif; ?>>出售</option>
+                <option value="0" <?php if($row['is_sell'] == '0'): ?>selected<?php endif; ?>>出租</option>
             </select>
         </div>
     </div>
 
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('发动机型号/推力'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('brandid'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carspl" data-rule="required" class="form-control" name="row[carspl]" type="text" value="<?php echo htmlentities($row['carspl']); ?>">
+            <select class="brandid form-control" name="row[brandid]" id="selectBrand">
+                <option value="0" <?php if($row['brandid'] == '0'): ?>selected<?php endif; ?>>请选择品牌</option>
+                <?php if(is_array($brandlist) || $brandlist instanceof \think\Collection || $brandlist instanceof \think\Paginator): if( count($brandlist)==0 ) : echo "" ;else: foreach($brandlist as $key=>$v): ?>
+                <option value="<?php echo $v['id']; ?>" <?php if($row['brandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="sbrandid form-control" name="row[sbrandid]" id="sbrandid">
+                <option value="0" <?php if($row['sbrandid'] == '0'): ?>selected<?php endif; ?>>请选择车系</option>
+                <?php if(is_array($brandcarslist) || $brandcarslist instanceof \think\Collection || $brandcarslist instanceof \think\Paginator): if( count($brandcarslist)==0 ) : echo "" ;else: foreach($brandcarslist as $key=>$v): ?>
+                <option value="<?php echo $v['id']; ?>" <?php if($row['sbrandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" ><?php echo __('per'); ?>:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
-    <!--        <div class="radio">-->
-    <!--            <label for="row[per]-normal"><input  name="row[per]" type="radio" value="L"  <?php echo $row['per']=='L'?'checked' :''; ?>> L</label>-->
-    <!--            <label for="row[per]-hidden"><input  name="row[per]" type="radio" value="T" <?php echo $row['per']=='T'?'checked' :''; ?> > T</label>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">出厂时间:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-factory_date" class="form-control" name="row[factory_date]" type="date" value="<?php echo (isset($row['factory_date']) && ($row['factory_date'] !== '')?$row['factory_date']:''); ?>">
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" ><?php echo __('carfuel'); ?>:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[airworthy]">
+                <option value="1" <?php if($row['airworthy'] == '1'): ?>selected<?php endif; ?>>是</option>
+                <option value="0" <?php if($row['airworthy'] == '0'): ?>selected<?php endif; ?>>否</option>
+            </select>
+        </div>
+    </div>
 
-    <!--        <select class="carfuel form-control" name="row[carfuel]"     >-->
-    <!--            <option value="" >请选择燃料类型</option>-->
-    <!--            <option value="汽油" <?php if($row['carfuel'] == '汽油'): ?>selected<?php endif; ?> >汽油</option>-->
-    <!--            <option value="柴油" <?php if($row['carfuel'] == '柴油'): ?>selected<?php endif; ?>  >柴油</option>-->
-    <!--            <option value="油电混合" <?php if($row['carfuel'] == '油电混合'): ?>selected<?php endif; ?>  >油电混合</option>-->
-    <!--            <option value="增程式" <?php if($row['carfuel'] == '增程式'): ?>selected<?php endif; ?> >增程式</option>-->
-    <!--            <option value="插电式混合动力" <?php if($row['carfuel'] == '插电式混合动力'): ?>selected<?php endif; ?>  >插电式混合动力</option>-->
-    <!--            <option value="纯电力" <?php if($row['carfuel'] == '纯电力'): ?>selected<?php endif; ?>  >纯电力</option>-->
-    <!--            <option value="氢燃料电池" <?php if($row['carfuel'] == '氢燃料电池'): ?>selected<?php endif; ?>  >氢燃料电池</option>-->
-    <!--            <option value="汽油+48V轻混系统" <?php if($row['carfuel'] == '汽油+48V轻混系统'): ?>selected<?php endif; ?>  >汽油+48V轻混系统</option>-->
-    <!--            <option value="油气混合" <?php if($row['carfuel'] == '油气混合'): ?>selected<?php endif; ?>  >油气混合</option>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[history_complete]">
+                <option value="1" <?php if($row['history_complete'] == '1'): ?>selected<?php endif; ?>>是</option>
+                <option value="0" <?php if($row['history_complete'] == '0'): ?>selected<?php endif; ?>>否</option>
+            </select>
+        </div>
+    </div>
 
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">事故及损伤历史:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[accident_history]"><?php echo htmlentities($row['accident_history']); ?></textarea>
+        </div>
+    </div>
 
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" ><?php echo __('carpos'); ?>:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">使用环境:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" name="row[usage_env]" type="text" value="<?php echo htmlentities($row['usage_env']); ?>">
+        </div>
+    </div>
 
-    <!--        <select class="carpos form-control" name="row[carpos]"     >-->
-    <!--            <option value="" >请选择座位</option>-->
-    <!--            <option value="2座" <?php if($row['carpos'] == '2座'): ?>selected<?php endif; ?> >2座</option>-->
-    <!--            <option value="4座" <?php if($row['carpos'] == '4座'): ?>selected<?php endif; ?> >4座</option>-->
-    <!--            <option value="5座" <?php if($row['carpos'] == '5座'): ?>selected<?php endif; ?> >5座</option>-->
-    <!--            <option value="6座" <?php if($row['carpos'] == '6座'): ?>selected<?php endif; ?> >6座</option>-->
-    <!--            <option value="7座及以上" <?php if($row['carpos'] == '7座及以上'): ?>selected<?php endif; ?>>7座及以上</option>-->
-    <!--        </select>-->
-    <!--    </div>-->
-    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">配置及改装记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[modification_record]"><?php echo htmlentities($row['modification_record']); ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">保险记录:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea class="form-control" name="row[insurance_record]"><?php echo htmlentities($row['insurance_record']); ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[property_dispute]">
+                <option value="0" <?php if($row['property_dispute'] == '0'): ?>selected<?php endif; ?>>无</option>
+                <option value="1" <?php if($row['property_dispute'] == '1'): ?>selected<?php endif; ?>>有</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[is_domestic]">
+                <option value="1" <?php if($row['is_domestic'] == '1'): ?>selected<?php endif; ?>>是</option>
+                <option value="0" <?php if($row['is_domestic'] == '0'): ?>selected<?php endif; ?>>否</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select class="form-control" name="row[can_view_deliver]">
+                <option value="1" <?php if($row['can_view_deliver'] == '1'): ?>selected<?php endif; ?>>是</option>
+                <option value="0" <?php if($row['can_view_deliver'] == '0'): ?>selected<?php endif; ?>>否</option>
+            </select>
+        </div>
+    </div>
 
 
     <div class="form-group">
@@ -320,25 +232,10 @@
         </div>
     </div>
 
-
-    <!--<div class="form-group">-->
-    <!--    <label class="control-label col-xs-12 col-sm-2" ><?php echo __('special'); ?>:</label>-->
-    <!--    <div class="col-xs-12 col-sm-8">-->
-    <!--        <div class="checkbox">-->
-    <!--            <?php if(is_array($speciallist) || $speciallist instanceof \think\Collection || $speciallist instanceof \think\Paginator): if( count($speciallist)==0 ) : echo "" ;else: foreach($speciallist as $key=>$v): ?>-->
-    <!--            <label for="row[special]-<?php echo $key; ?>"><input id="row[special]-<?php echo $key; ?>"  name="row[special][]" type="checkbox" value="<?php echo $v; ?>"  <?php if(in_array(($v), is_array($row['special'])?$row['special']:explode(',',$row['special']))): ?> checked <?php endif; ?> ><?php echo $v; ?></label>-->
-
-    <!--            <?php endforeach; endif; else: echo "" ;endif; ?>-->
-
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('tel'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text"  value="<?php echo htmlentities($row['tel']); ?>">
+            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text" value="<?php echo htmlentities($row['tel']); ?>">
         </div>
     </div>
 
@@ -358,7 +255,7 @@
     </div>
 
     <div class="form-group" data-field="images">
-        <label for="c-image" class="control-label col-xs-12 col-sm-2"><?php echo __('thumb_url'); ?></label>
+        <label for="c-images" class="control-label col-xs-12 col-sm-2"><?php echo __('thumb_url'); ?></label>
         <div class="col-xs-12 col-sm-8">
             <div class="input-group">
                 <input id="c-images" class="form-control" size="50" name="row[thumb_url]" type="text" value="<?php echo htmlentities($row['thumb_url']); ?>" placeholder="组图可以直接从正文进行提取,可以为空">
@@ -372,13 +269,10 @@
         </div>
     </div>
 
-
     <div class="form-group" data-field="description">
-        <label for="c-description" class="control-label col-xs-12 col-sm-2"><?php echo __('content'); ?></label>
+        <label for="c-content" class="control-label col-xs-12 col-sm-2"><?php echo __('content'); ?></label>
         <div class="col-xs-12 col-sm-8">
-
             <textarea id="c-content" class="form-control editor" name="row[content]" cols="30" rows="10"><?php echo htmlentities($row['content']); ?></textarea>
-
         </div>
     </div>
 
@@ -386,8 +280,8 @@
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('isrecommand'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[isrecommand]-normal"><input  name="row[isrecommand]" type="radio" value="1"  <?php echo $row['isrecommand']==1?'checked' :''; ?>> 是 </label>
-                <label for="row[isrecommand]-hidden"><input  name="row[isrecommand]" type="radio" value="0"  <?php echo $row['isrecommand']==0?'checked' :''; ?>>否</label>
+                <label><input name="row[isrecommand]" type="radio" value="1" <?php echo $row['isrecommand']==1?'checked' : ''; ?>> 是 </label>
+                <label><input name="row[isrecommand]" type="radio" value="0" <?php echo $row['isrecommand']==0?'checked' : ''; ?>> 否</label>
             </div>
         </div>
     </div>
@@ -396,26 +290,21 @@
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('ischeck'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[ischeck]-normal"><input  name="row[ischeck]" type="radio" value="1" <?php echo $row['ischeck']==1?'checked' :''; ?>> 启用</label>
-                <label for="row[ischeck]-hidden"><input  name="row[ischeck]" type="radio" value="0" <?php echo $row['ischeck']==0?'checked' :''; ?>> 禁用</label>
+                <label><input name="row[ischeck]" type="radio" value="1" <?php echo $row['ischeck']==1?'checked' : ''; ?>> 启用</label>
+                <label><input name="row[ischeck]" type="radio" value="0" <?php echo $row['ischeck']==0?'checked' : ''; ?>> 禁用</label>
             </div>
         </div>
     </div>
-
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('status'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
             <div class="radio">
-                <label for="row[status]-normal"><input  name="row[status]" type="radio" value="1" <?php echo $row['status']==1?'checked' :''; ?>> 启用</label>
-                <label for="row[status]-hidden"><input  name="row[status]" type="radio" value="0" <?php echo $row['status']==0?'checked' :''; ?>> 禁用</label>
+                <label><input name="row[status]" type="radio" value="1" <?php echo $row['status']==1?'checked' : ''; ?>> 启用</label>
+                <label><input name="row[status]" type="radio" value="0" <?php echo $row['status']==0?'checked' : ''; ?>> 禁用</label>
             </div>
         </div>
     </div>
-
-
-
-
 
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>

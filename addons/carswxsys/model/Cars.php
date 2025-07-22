@@ -38,14 +38,14 @@
         public function getCarsByWhere($map, $Nowpage, $limits, $od)
         {
             $carslist = $this->alias('r')
-                ->field('r.transfer_num, r.scrap_time, r.car_number_city,r.per AS per,r.content AS content,r.carfuel AS carfuel,r.carage AS carage,r.cartype AS cartype,r.carrate AS carrate,r.carchange AS carchange,r.carspl AS carspl,r.carpos AS carpos,r.carcolor AS carcolor,s.name AS sbrandname,b.name AS brandname,r.tel AS tel,p.name AS provincename,c.name AS cityname,a.name AS areaname,s.name AS sbrandname,b.name AS brandname,r.tel AS tel,p.name AS provincename,c.name AS cityname,a.name AS areaname,r.id AS id,r.title AS title, r.money AS money,r.newmoney AS newmoney,r.carkm AS carkm, r.carnumdate AS carnumdate,r.thumb AS thumb,r.thumb_url AS thumb_url,r.carspl AS carspl,b.name AS brandname,r.status AS status,r.ischeck AS ischeck,r.toptime AS toptime ')
+                ->field('r.transfer_num,r.is_sell ,r.scrap_time, r.car_number_city,r.per AS per,r.content AS content,r.carfuel AS carfuel,r.carage AS carage,r.cartype AS cartype,r.carrate AS carrate,r.carchange AS carchange,r.carspl AS carspl,r.carpos AS carpos,r.carcolor AS carcolor,s.name AS sbrandname,b.name AS brandname,r.tel AS tel,s.name AS sbrandname,b.name AS brandname,r.tel AS tel,r.id AS id,r.title AS title, r.money AS money,r.newmoney AS newmoney,r.carkm AS carkm, r.carnumdate AS carnumdate,r.thumb AS thumb,r.thumb_url AS thumb_url,r.carspl AS carspl,b.name AS brandname,r.status AS status,r.ischeck AS ischeck,r.toptime AS toptime ')
                 ->join('carswxsys_brand b', 'b.id = r.brandid','left')
                 ->join('carswxsys_brandcars s', 's.id = r.sbrandid','left')
-                ->join('carswxsys_province p', 'p.id = r.provinceid')
-                ->join('carswxsys_city c', 'c.id = r.cityid')
-                ->join('carswxsys_area a', 'a.id = r.areaid')
+//                ->join('carswxsys_province p', 'p.id = r.provinceid')
+//                ->join('carswxsys_city c', 'c.id = r.cityid')
+//                ->join('carswxsys_area a', 'a.id = r.areaid')
                 ->where($map)->page($Nowpage, $limits)->order($od)->select();
-            
+
             
             if ($carslist) {
                 foreach ($carslist as $k => $v) {

@@ -202,6 +202,9 @@ class Cars extends Backend
                         //设置为null
                         $params[$k] = null;
                     }
+                    if($k == 'money' && $v == '面议'){
+                        $params[$k] = null;
+                    }
                 }
                 if ($this->dataLimit && $this->dataLimitFieldAutoFill) {
                     $params[$this->dataLimitField] = $this->auth->id;
@@ -215,6 +218,9 @@ class Cars extends Backend
 
 
                 $result = $cars->insertCars($params);
+                if ($result['code'] == 100){
+                    $this->error($result['msg']);
+                }
 
                 if ($result !== false) {
                     $this->success();
@@ -273,6 +279,10 @@ class Cars extends Backend
 
                 // file_put_contents(__DIR__.'/car_up.log', json_encode(array($params)).PHP_EOL, FILE_APPEND);
                 $result = $cars->updateCars($params);
+
+                if ($result['code'] == 100){
+                    $this->error($result['msg']);
+                }
 
                 if ($result !== false) {
                     $this->success();

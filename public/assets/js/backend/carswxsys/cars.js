@@ -34,7 +34,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         // {field: 'areaname', title: __('areaid'), operate:false,},
                         // {field: 'car_number_city', title: __('注册号'), operate:false,},
                         {field: 'brandname', title: __('brandname')},
-                        {field: 'sbrandname', title: __('sbrandname'), operate:false},
+                        // {field: 'sbrandname', title: __('sbrandname'), operate:false},
                         {field: 'is_sell', title: '出租/出售',searchList: {"1":"出售","0":"出租"},  operate:false,
                             formatter: function(value, row, index) {
                                 if (value === 1 || value === '1') {
@@ -46,7 +46,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                             }
                             },
 
-                        {field: 'money', title: __('售价') ,operate:false,},
+                        {field: 'money', title: __('售价') ,operate:false,   formatter: function(value, row, index) {
+                                if (value === null || value === '' || value === undefined) {
+                                    return '<span style="color: #0363dc;">面议</span>';
+                                }
+                                return value;
+                            }},
                         // {field: 'scrap_time', title: __('报废日期')},
                         // {field: 'transfer_num', title: __('过户次数')},
                         {field: 'ischeck', title: __('ischeck'), operate:false, formatter: Table.api.formatter.toggle},

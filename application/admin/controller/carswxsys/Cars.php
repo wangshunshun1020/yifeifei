@@ -193,7 +193,16 @@ class Cars extends Backend
             file_put_contents(__DIR__ . '/car_add.log', json_encode(array($params)) . PHP_EOL, FILE_APPEND);
             if ($params) {
                 $params = $this->preExcludeFields($params);
-
+                // 处理 factory_date 空值
+                if (isset($params['factory_date']) && $params['factory_date'] === '') {
+                    $params['factory_date'] = null; // 设置为 NULL
+                }
+                foreach ($params as $k => $v){
+                    if ($v === ''){
+                        //设置为null
+                        $params[$k] = null;
+                    }
+                }
                 if ($this->dataLimit && $this->dataLimitFieldAutoFill) {
                     $params[$this->dataLimitField] = $this->auth->id;
                 }
@@ -204,8 +213,8 @@ class Cars extends Backend
                 // $params['special'] = implode(',', $params['special']??"");
                 $params['createtime'] = time();
 
-                $result = $cars->insertCars($params);
 
+                $result = $cars->insertCars($params);
 
                 if ($result !== false) {
                     $this->success();
@@ -249,6 +258,15 @@ class Cars extends Backend
             if ($params) {
 
                 $params = $this->preExcludeFields($params);
+                if (isset($params['factory_date']) && $params['factory_date'] === '') {
+                    $params['factory_date'] = null; // 设置为 NULL
+                }
+                foreach ($params as $k => $v){
+                    if ($v === ''){
+                        //设置为null
+                        $params[$k] = null;
+                    }
+                }
                 $result = false;
 
                 // $params['special'] = implode(',', $params['special']??'');

@@ -78,21 +78,17 @@
         {
             Db::startTrans();// 启动事务
             try {
-                
-                
                 $this->allowField(true)->save($param);
                 Db::commit();// 提交事务
                 return ['code' => 200, 'data' => '', 'msg' => '添加成功'];
             } catch (\Exception $e) {
 
-
                 Db::rollback();// 回滚事务
-//                return [
-//                    'code' => 100,
-//                    'data' => '',
-//                    'msg'  => '添加失败: ' . $e->getMessage()
-//                ];
-                return ['code' => 100, 'data' => '', 'msg' => '添加失败'];
+                return [
+                    'code' => 100,
+                    'data' => '',
+                    'msg'  => '添加失败: ' . $e->getMessage()
+                ];
             }
         }
         
@@ -110,7 +106,11 @@
                 return ['code' => 200, 'data' => '', 'msg' => '编辑成功'];
             } catch (\Exception $e) {
                 Db::rollback();// 回滚事务
-                return ['code' => 100, 'data' => '', 'msg' => '编辑失败'];
+                return [
+                    'code' => 100,
+                    'data' => '',
+                    'msg'  => '编辑失败: ' . $e->getMessage()
+                ];
             }
         }
         

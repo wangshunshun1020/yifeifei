@@ -16,14 +16,14 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('售价')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-money" data-rule="required" class="form-control" name="row[money]" type="text">
+            <input id="c-money"  data-rule="required" class="form-control" name="row[money]" type="text">
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >{:__('飞行小时数')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-carkm" data-rule="required" class="form-control" name="row[carkm]" type="text">
+            <input id="c-carkm"   class="form-control" name="row[carkm]" type="text">
         </div>
     </div>
 
@@ -31,7 +31,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >类型:</label>
         <div class="col-xs-12 col-sm-8">
-            <select class="brandid form-control" name="row[is_sell]"  id="selectType"   >
+            <select class="brandid form-control" data-rule="required" name="row[is_sell]"  id="selectType" >
                 <option value="1">出售</option>
                 <option value="0">出租</option>
             </select>
@@ -76,6 +76,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[airworthy]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -86,6 +87,7 @@
         <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[history_complete]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -124,6 +126,7 @@
         <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[property_dispute]">
+                <option value="">请选择</option>
                 <option value="0">无</option>
                 <option value="1">有</option>
             </select>
@@ -134,6 +137,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[is_domestic]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -144,6 +148,7 @@
         <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[can_view_deliver]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>

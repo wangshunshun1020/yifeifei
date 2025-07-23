@@ -272,6 +272,9 @@ class Cars extends Backend
                         //设置为null
                         $params[$k] = null;
                     }
+                    if($k == 'money' && $v == '面议'){
+                        $params[$k] = null;
+                    }
                 }
                 $result = false;
 

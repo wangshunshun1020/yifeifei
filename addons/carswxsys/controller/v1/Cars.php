@@ -570,6 +570,8 @@ class Cars extends BaseController
 
         $carsinfo = $CarsModel->getCars($map);
 
+        
+
 
         $count = 10;
         if ($count) {

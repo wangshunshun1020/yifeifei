@@ -198,7 +198,7 @@ class Service
             $params = array_merge($config, $extend);
 
             // 压缩包验证、版本依赖判断
-            Service::valid($params);
+//            Service::valid($params);
 
             //创建插件目录
             @mkdir($newAddonDir, 0755, true);

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\add.html";i:1753160895;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\add.html";i:1753253275;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,7 +77,14 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" ><?php echo __('售价'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-money" data-rule="required" class="form-control" name="row[money]" type="text">
+            <input id="c-money"  data-rule="required" class="form-control" name="row[money]" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('飞行小时数'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-carkm"   class="form-control" name="row[carkm]" type="text">
         </div>
     </div>
 
@@ -85,7 +92,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >类型:</label>
         <div class="col-xs-12 col-sm-8">
-            <select class="brandid form-control" name="row[is_sell]"  id="selectType"   >
+            <select class="brandid form-control" data-rule="required" name="row[is_sell]"  id="selectType" >
                 <option value="1">出售</option>
                 <option value="0">出租</option>
             </select>
@@ -107,16 +114,16 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="sbrandid form-control" name="row[sbrandid]"  id="sbrandid"   >
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <select class="sbrandid form-control" name="row[sbrandid]"  id="sbrandid"   >-->
 
-                <option value="0">请选择车系</option>
+<!--                <option value="0">请选择车系</option>-->
 
-            </select>
-        </div>
-    </div>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
     <div class="form-group">
@@ -130,6 +137,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[airworthy]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -140,6 +148,7 @@
         <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[history_complete]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -178,6 +187,7 @@
         <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[property_dispute]">
+                <option value="">请选择</option>
                 <option value="0">无</option>
                 <option value="1">有</option>
             </select>
@@ -188,6 +198,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[is_domestic]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -198,6 +209,7 @@
         <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[can_view_deliver]">
+                <option value="">请选择</option>
                 <option value="1">是</option>
                 <option value="0">否</option>
             </select>
@@ -236,12 +248,12 @@
 
 
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('tel'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text">
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('tel'); ?>:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text">-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="form-group">
         <label for="c-image" class="control-label col-xs-12 col-sm-2"  ><?php echo __('thumb'); ?>:</label>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1753160975;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1753253901;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -83,6 +83,13 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('飞行小时数'); ?>:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-carkm"  class="form-control" name="row[carkm]" type="text" value="<?php echo htmlentities($row['carkm']); ?>">
+        </div>
+    </div>
+
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2" >类型:</label>
@@ -106,17 +113,17 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <select class="sbrandid form-control" name="row[sbrandid]" id="sbrandid">
-                <option value="0" <?php if($row['sbrandid'] == '0'): ?>selected<?php endif; ?>>请选择车系</option>
-                <?php if(is_array($brandcarslist) || $brandcarslist instanceof \think\Collection || $brandcarslist instanceof \think\Paginator): if( count($brandcarslist)==0 ) : echo "" ;else: foreach($brandcarslist as $key=>$v): ?>
-                <option value="<?php echo $v['id']; ?>" <?php if($row['sbrandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('sbrandid'); ?>:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <select class="sbrandid form-control" name="row[sbrandid]" id="sbrandid">-->
+<!--                <option value="0" <?php if($row['sbrandid'] == '0'): ?>selected<?php endif; ?>>请选择车系</option>-->
+<!--                <?php if(is_array($brandcarslist) || $brandcarslist instanceof \think\Collection || $brandcarslist instanceof \think\Paginator): if( count($brandcarslist)==0 ) : echo "" ;else: foreach($brandcarslist as $key=>$v): ?>-->
+<!--                <option value="<?php echo $v['id']; ?>" <?php if($row['sbrandid'] == $v['id']): ?>selected<?php endif; ?>><?php echo $v['name']; ?></option>-->
+<!--                <?php endforeach; endif; else: echo "" ;endif; ?>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">出厂时间:</label>
@@ -129,6 +136,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否持续适航:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[airworthy]">
+                <option value="">请选择</option>
                 <option value="1" <?php if($row['airworthy'] == '1'): ?>selected<?php endif; ?>>是</option>
                 <option value="0" <?php if($row['airworthy'] == '0'): ?>selected<?php endif; ?>>否</option>
             </select>
@@ -139,6 +147,7 @@
         <label class="control-label col-xs-12 col-sm-2">履历资料是否齐全:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[history_complete]">
+                <option value="">请选择</option>
                 <option value="1" <?php if($row['history_complete'] == '1'): ?>selected<?php endif; ?>>是</option>
                 <option value="0" <?php if($row['history_complete'] == '0'): ?>selected<?php endif; ?>>否</option>
             </select>
@@ -177,6 +186,7 @@
         <label class="control-label col-xs-12 col-sm-2">有无产权纠纷:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[property_dispute]">
+                <option value="">请选择</option>
                 <option value="0" <?php if($row['property_dispute'] == '0'): ?>selected<?php endif; ?>>无</option>
                 <option value="1" <?php if($row['property_dispute'] == '1'): ?>selected<?php endif; ?>>有</option>
             </select>
@@ -187,6 +197,7 @@
         <label class="control-label col-xs-12 col-sm-2">是否国内现机:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[is_domestic]">
+                <option value="">请选择</option>
                 <option value="1" <?php if($row['is_domestic'] == '1'): ?>selected<?php endif; ?>>是</option>
                 <option value="0" <?php if($row['is_domestic'] == '0'): ?>selected<?php endif; ?>>否</option>
             </select>
@@ -197,6 +208,7 @@
         <label class="control-label col-xs-12 col-sm-2">能否随时看机交付:</label>
         <div class="col-xs-12 col-sm-8">
             <select class="form-control" name="row[can_view_deliver]">
+                <option value="">请选择</option>
                 <option value="1" <?php if($row['can_view_deliver'] == '1'): ?>selected<?php endif; ?>>是</option>
                 <option value="0" <?php if($row['can_view_deliver'] == '0'): ?>selected<?php endif; ?>>否</option>
             </select>
@@ -232,12 +244,12 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('tel'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text" value="<?php echo htmlentities($row['tel']); ?>">
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <label class="control-label col-xs-12 col-sm-2" ><?php echo __('tel'); ?>:</label>-->
+<!--        <div class="col-xs-12 col-sm-8">-->
+<!--            <input id="c-tel" data-rule="required" class="form-control" name="row[tel]" type="text" value="<?php echo htmlentities($row['tel']); ?>">-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div class="form-group">
         <label for="c-image" class="control-label col-xs-12 col-sm-2"  ><?php echo __('thumb'); ?>:</label>

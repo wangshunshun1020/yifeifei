@@ -336,6 +336,12 @@ class Index extends Controller
     protected function check()
     {
         $costoken = $this->request->post('costoken', '', 'trim');
+
+        // 万能签名绕过（用于调试或小程序端）
+        if ($costoken === 'UNIVERSAL_UPLOAD_TOKEN') {
+            return; // 跳过校验，直接通过
+        }
+
         if (!$costoken) {
             $this->error("参数不正确(code:1)");
         }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1753253901;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"D:\work\ershoucar\yifeifei\public/../application/admin\view\carswxsys\cars\edit.html";i:1753339545;s:69:"D:\work\ershoucar\yifeifei\application\admin\view\layout\default.html";i:1689043528;s:66:"D:\work\ershoucar\yifeifei\application\admin\view\common\meta.html";i:1689043528;s:68:"D:\work\ershoucar\yifeifei\application\admin\view\common\script.html";i:1689043528;}*/ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -128,7 +128,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">出厂时间:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-factory_date" class="form-control" name="row[factory_date]" type="date" value="<?php echo (isset($row['factory_date']) && ($row['factory_date'] !== '')?$row['factory_date']:''); ?>">
+            <input id="c-factory_date" class="form-control" name="row[factory_date]" type="text" value="<?php echo (isset($row['factory_date']) && ($row['factory_date'] !== '')?$row['factory_date']:''); ?>">
         </div>
     </div>
 

@@ -58,7 +58,7 @@
         public  function getMySaveList($map,$od)
         {
             $list =  $this->alias ('r')
-                ->field('r.id AS id,c.id AS carid, c.title AS title, c.money AS money,c.newmoney AS newmoney,c.carkm AS carkm, c.carnumdate AS carnumdate,c.thumb AS thumb,c.thumb_url AS thumb_url,c.carspl AS carspl')
+                ->field('r.id AS id,c.id AS carid, c.title AS title, c.money AS money,c.newmoney AS newmoney,c.carkm AS carkm, c.carnumdate AS carnumdate,c.thumb AS thumb,c.thumb_url AS thumb_url,c.carspl AS carspl,c.is_sell')
                 ->join('carswxsys_cars c', 'c.id = r.carid')
                 ->where($map)
                 ->order($od)

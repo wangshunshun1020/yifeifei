@@ -12,7 +12,7 @@
         {
             $carslist = $this->alias('r')->field('r.transfer_num, r.scrap_time, r.car_number_city,r.per AS per,r.ischeck AS ischeck,r.id AS id,r.title AS title, r.money AS money,r.newmoney AS newmoney,r.carkm AS carkm, r.carnumdate AS carnumdate,r.thumb AS thumb,r.thumb_url AS thumb_url,r.carspl AS carspl,c.name AS cityname,b.name AS brandname ')->join('carswxsys_brand b', 'b.id = r.brandid')
              
-                ->join('carswxsys_city c', 'c.id = r.cityid')->where($map)->page($Nowpage, $limits)->order($od)->select();
+                ->join('carswxsys_city c', 'c.id = r.cityid')->where($map)->order($od)->select();
             
    
             
@@ -44,7 +44,7 @@
 //                ->join('carswxsys_province p', 'p.id = r.provinceid')
 //                ->join('carswxsys_city c', 'c.id = r.cityid')
 //                ->join('carswxsys_area a', 'a.id = r.areaid')
-                ->where($map)->page($Nowpage, $limits)->order($od)->select();
+                ->where($map)->order($od)->select();
 
             
             if ($carslist) {

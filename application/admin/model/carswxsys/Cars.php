@@ -49,9 +49,9 @@
         {
             return $this->alias ('g')
                 ->field('g.id AS id, g.title AS title ,g.tel AS tel,g.money AS money, g.newmoney AS newmoney,g.carkm AS carkm,g.carnumdate AS carnumdate,g.carcolor AS carcolor,g.carrate AS carrate,g.carspl AS carspl,g.createtime AS createtime,g.sort AS sort, g.status AS status ,g.ischeck AS ischeck,g.uid AS uid,g.issale AS issale,b.name AS brandname , e.name AS sbrandname ')
-                ->join('carswxsys_city c', 'g.cityid = c.id')
-                ->join('carswxsys_area a', 'g.areaid = a.id')
-                ->join('carswxsys_province p', 'p.id = g.provinceid','left')
+//                ->join('carswxsys_city c', 'g.cityid = c.id')
+//                ->join('carswxsys_area a', 'g.areaid = a.id')
+//                ->join('carswxsys_province p', 'p.id = g.provinceid','left')
                 ->join('carswxsys_brand b', 'b.id = g.brandid','left')
                 ->join('carswxsys_brandcars e', 'e.id = g.sbrandid','left')
                 ->join('carswxsys_user u', 'u.id = g.uid','left')
